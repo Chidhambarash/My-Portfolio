@@ -39,157 +39,68 @@
             scrollbar-width: none;
         }
 
-        .marquee {
+        .project-tile {
             position: relative;
             overflow: hidden;
-        }
-
-        .marquee::before,
-        .marquee::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 80px;
-            z-index: 10;
-            pointer-events: none;
-        }
-
-        .marquee::before {
-            left: 0;
-            background: linear-gradient(to right, rgba(248, 250, 252, 1), rgba(248, 250, 252, 0));
-        }
-
-        .marquee::after {
-            right: 0;
-            background: linear-gradient(to left, rgba(248, 250, 252, 1), rgba(248, 250, 252, 0));
-        }
-
-        .marquee__track {
-            display: flex;
-            width: max-content;
-            gap: 1.5rem;
-            animation: marquee-scroll 38s linear infinite;
-        }
-
-        .marquee__group {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            position: relative;
-            overflow: hidden;
-            min-height: 360px;
+            border-radius: 1.5rem;
+            height: 400px;
             text-decoration: none;
         }
 
-        .project-card__cover,
-        .project-card__content {
-            transition: opacity 0.6s ease, transform 0.6s ease;
+        .project-tile__image,
+        .project-tile__overlay,
+        .project-tile__content {
+            transition: transform 0.6s ease, opacity 0.6s ease, filter 0.6s ease, background-color 0.6s ease;
         }
 
-        .project-card__cover {
+        .project-tile__image {
             position: absolute;
             inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-tile__overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .project-tile__content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
             padding: 2rem;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            gap: 0.75rem;
             color: #f8fafc;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .project-card__cover::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.2));
-        }
-
-        .project-card__cover > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .project-card__kicker {
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            opacity: 0.8;
-        }
-
-        .project-card__phrase {
-            font-size: 1.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .project-card__content {
-            position: relative;
-            z-index: 2;
-            padding: 2rem;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
             opacity: 0;
             transform: translateY(12px);
         }
 
-        .project-card:hover .project-card__cover,
-        .project-card:focus-visible .project-card__cover {
-            opacity: 0;
-            transform: scale(1.02);
+        .project-tile:hover .project-tile__image,
+        .project-tile:focus-visible .project-tile__image {
+            transform: scale(1.1);
+            filter: blur(4px);
         }
 
-        .project-card:hover .project-card__content,
-        .project-card:focus-visible .project-card__content {
+        .project-tile:hover .project-tile__overlay,
+        .project-tile:focus-visible .project-tile__overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .project-tile:hover .project-tile__content,
+        .project-tile:focus-visible .project-tile__content {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .project-cover--greenfield {
-            background-image: linear-gradient(135deg, rgba(30, 64, 175, 0.6), rgba(37, 99, 235, 0.2)), url('https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=80');
-        }
-
-        .project-cover--mps {
-            background-image: linear-gradient(135deg, rgba(79, 70, 229, 0.6), rgba(99, 102, 241, 0.2)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80');
-        }
-
-        .project-cover--punchout {
-            background-image: linear-gradient(135deg, rgba(5, 150, 105, 0.6), rgba(16, 185, 129, 0.2)), url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80');
-        }
-
-        .project-cover--automation {
-            background-image: linear-gradient(135deg, rgba(109, 40, 217, 0.6), rgba(139, 92, 246, 0.2)), url('https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=900&q=80');
-        }
-
-        .project-cover--agentic {
-            background-image: linear-gradient(135deg, rgba(6, 182, 212, 0.6), rgba(14, 165, 233, 0.2)), url('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=900&q=80');
-        }
-
-        .project-cover--sbr {
-            background-image: linear-gradient(135deg, rgba(234, 88, 12, 0.6), rgba(249, 115, 22, 0.2)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80');
-        }
-
-        @keyframes marquee-scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
         @media (prefers-reduced-motion: reduce) {
-            .marquee__track {
-                animation: none;
-            }
-
-            .project-card__cover,
-            .project-card__content {
+            .project-tile__image,
+            .project-tile__overlay,
+            .project-tile__content {
                 transition: none;
             }
         }
@@ -290,207 +201,72 @@
                 <p class="text-slate-600 max-w-2xl mx-auto">Selected professional engagements where I owned the process from negotiation to implementation.</p>
             </div>
 
-            <div class="relative marquee">
-                <div class="marquee__track py-6 px-2">
-                    <div class="marquee__group">
-                    
-                    <!-- Project 1: Greenfield Security -->
-                    <a href="project-greenfield.html" class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-center project-card">
-                        <div class="project-card__cover project-cover--greenfield">
-                            <span class="project-card__kicker">Greenfield Security System</span>
-                            <p class="project-card__phrase">Secure a site from day zero.</p>
-                        </div>
-                        <div class="project-card__content">
-                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
-                                <i class="fa-solid fa-shield-halved text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Greenfield Security System</h3>
-                            <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">Implementation &amp; Sourcing</p>
-                            <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">Led the end-to-end sourcing for a complete security infrastructure setup for a new facility.</p>
-                        </div>
-                    </a>
-
-                    <!-- Project 2: MPS -->
-                    <a href="project-mps.html" class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-start project-card">
-                        <div class="project-card__cover project-cover--mps">
-                            <span class="project-card__kicker">MPS Optimization</span>
-                            <p class="project-card__phrase">Print spend, radically optimized.</p>
-                        </div>
-                        <div class="project-card__content">
-                            <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600 mb-6">
-                                <i class="fa-solid fa-print text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">MPS Optimization</h3>
-                            <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">Managed Print Services</p>
-                            <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">Consolidated print vendors and optimized fleet usage, resulting in significant reduction in cost-per-page.</p>
-                        </div>
-                    </a>
-
-                    <!-- Project 3: Punchout Vendors -->
-                    <a href="project-punchout.html" class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-center project-card">
-                        <div class="project-card__cover project-cover--punchout">
-                            <span class="project-card__kicker">Punchout Integration</span>
-                            <p class="project-card__phrase">Catalogs connected, friction removed.</p>
-                        </div>
-                        <div class="project-card__content">
-                            <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-600 mb-6">
-                                <i class="fa-solid fa-link text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Punchout Integration</h3>
-                            <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">e-Procurement</p>
-                            <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">Streamlined PR-to-PO process by integrating vendor catalogs directly into the ERP system.</p>
-                        </div>
-                    </a>
-
-                    <!-- Project 4: PR Automation & Enablement -->
-                    <a href="project-automation.html" class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-center project-card">
-                        <div class="project-card__cover project-cover--automation">
-                            <span class="project-card__kicker">PR Automation &amp; Enablement</span>
-                            <p class="project-card__phrase">Requests routed at warp speed.</p>
-                        </div>
-                        <div class="project-card__content">
-                            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 mb-6">
-                                <i class="fa-solid fa-gear text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">PR Automation & Enablement</h3>
-                            <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">Transformation Enablement</p>
-                            <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">Stabilized PR routing and embedded intake logic to accelerate a newly restructured procurement operating model.</p>
-                        </div>
-                    </a>
-
-                    <!-- Project 5: Agentic AI for Legal Review -->
-                    <a href="project-agentic.html" class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-center project-card">
-                        <div class="project-card__cover project-cover--agentic">
-                            <span class="project-card__kicker">Agentic AI for Legal Review</span>
-                            <p class="project-card__phrase">First-pass legal in minutes.</p>
-                        </div>
-                        <div class="project-card__content">
-                            <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center text-cyan-600 mb-6">
-                                <i class="fa-solid fa-brain text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Agentic AI for Legal Review</h3>
-                            <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">AI &amp; Digital Governance</p>
-                            <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">Designed an AI agent to act as a first-level reviewer for legal docs, reducing Legal touchpoints by 50% and accelerating initial review cycles by 70%.</p>
-                        </div>
-                    </a>
-
-                    <!-- Project 6: SBR Framework Implementation -->
-                    <a href="project-sbr.html" class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-center project-card">
-                        <div class="project-card__cover project-cover--sbr">
-                            <span class="project-card__kicker">SBR Framework Implementation</span>
-                            <p class="project-card__phrase">Supplier performance, always on.</p>
-                        </div>
-                        <div class="project-card__content">
-                            <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-6">
-                                <i class="fa-solid fa-chart-line text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">SBR Framework Implementation</h3>
-                            <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">Performance Governance</p>
-                            <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">Institutionalized a supplier scorecard and review cadence, driving accountability and enabling ~30% vendor consolidation.</p>
-                        </div>
-                    </a>
-
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Project 1: Greenfield Security -->
+                <a href="project-greenfield.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60">
+                    <img src="https://images.unsplash.com/photo-1565514020176-db8b3650228d?auto=format&fit=crop&w=800&q=80" alt="Warehouse construction site" class="project-tile__image">
+                    <div class="project-tile__overlay"></div>
+                    <div class="project-tile__content">
+                        <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">Implementation &amp; Sourcing</p>
+                        <h3 class="text-2xl font-bold mb-3">Greenfield Security System</h3>
+                        <p class="text-sm text-white/85 leading-relaxed">Led the end-to-end sourcing for a complete security infrastructure setup for a new facility.</p>
                     </div>
+                </a>
 
-                    <div class="marquee__group" aria-hidden="true">
-                        <!-- Project 1: Greenfield Security -->
-                        <a href="project-greenfield.html" class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-center project-card">
-                            <div class="project-card__cover project-cover--greenfield">
-                                <span class="project-card__kicker">Greenfield Security System</span>
-                                <p class="project-card__phrase">Secure a site from day zero.</p>
-                            </div>
-                            <div class="project-card__content">
-                                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
-                                    <i class="fa-solid fa-shield-halved text-xl"></i>
-                                </div>
-                                <h3 class="text-xl font-bold text-slate-900 mb-2">Greenfield Security System</h3>
-                                <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">Implementation &amp; Sourcing</p>
-                                <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">Led the end-to-end sourcing for a complete security infrastructure setup for a new facility.</p>
-                            </div>
-                        </a>
-
-                        <!-- Project 2: MPS -->
-                        <a href="project-mps.html" class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-start project-card">
-                            <div class="project-card__cover project-cover--mps">
-                                <span class="project-card__kicker">MPS Optimization</span>
-                                <p class="project-card__phrase">Print spend, radically optimized.</p>
-                            </div>
-                            <div class="project-card__content">
-                                <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600 mb-6">
-                                    <i class="fa-solid fa-print text-xl"></i>
-                                </div>
-                                <h3 class="text-xl font-bold text-slate-900 mb-2">MPS Optimization</h3>
-                                <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">Managed Print Services</p>
-                                <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">Consolidated print vendors and optimized fleet usage, resulting in significant reduction in cost-per-page.</p>
-                            </div>
-                        </a>
-
-                        <!-- Project 3: Punchout Vendors -->
-                        <a href="project-punchout.html" class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-center project-card">
-                            <div class="project-card__cover project-cover--punchout">
-                                <span class="project-card__kicker">Punchout Integration</span>
-                                <p class="project-card__phrase">Catalogs connected, friction removed.</p>
-                            </div>
-                            <div class="project-card__content">
-                                <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-600 mb-6">
-                                    <i class="fa-solid fa-link text-xl"></i>
-                                </div>
-                                <h3 class="text-xl font-bold text-slate-900 mb-2">Punchout Integration</h3>
-                                <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">e-Procurement</p>
-                                <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">Streamlined PR-to-PO process by integrating vendor catalogs directly into the ERP system.</p>
-                            </div>
-                        </a>
-
-                        <!-- Project 4: PR Automation & Enablement -->
-                        <a href="project-automation.html" class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-center project-card">
-                            <div class="project-card__cover project-cover--automation">
-                                <span class="project-card__kicker">PR Automation &amp; Enablement</span>
-                                <p class="project-card__phrase">Requests routed at warp speed.</p>
-                            </div>
-                            <div class="project-card__content">
-                                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 mb-6">
-                                    <i class="fa-solid fa-gear text-xl"></i>
-                                </div>
-                                <h3 class="text-xl font-bold text-slate-900 mb-2">PR Automation & Enablement</h3>
-                                <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">Transformation Enablement</p>
-                                <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">Stabilized PR routing and embedded intake logic to accelerate a newly restructured procurement operating model.</p>
-                            </div>
-                        </a>
-
-                        <!-- Project 5: Agentic AI for Legal Review -->
-                        <a href="project-agentic.html" class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-center project-card">
-                            <div class="project-card__cover project-cover--agentic">
-                                <span class="project-card__kicker">Agentic AI for Legal Review</span>
-                                <p class="project-card__phrase">First-pass legal in minutes.</p>
-                            </div>
-                            <div class="project-card__content">
-                                <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center text-cyan-600 mb-6">
-                                    <i class="fa-solid fa-brain text-xl"></i>
-                                </div>
-                                <h3 class="text-xl font-bold text-slate-900 mb-2">Agentic AI for Legal Review</h3>
-                                <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">AI &amp; Digital Governance</p>
-                                <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">Designed an AI agent to act as a first-level reviewer for legal docs, reducing Legal touchpoints by 50% and accelerating initial review cycles by 70%.</p>
-                            </div>
-                        </a>
-
-                        <!-- Project 6: SBR Framework Implementation -->
-                        <a href="project-sbr.html" class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-center project-card">
-                            <div class="project-card__cover project-cover--sbr">
-                                <span class="project-card__kicker">SBR Framework Implementation</span>
-                                <p class="project-card__phrase">Supplier performance, always on.</p>
-                            </div>
-                            <div class="project-card__content">
-                                <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-6">
-                                    <i class="fa-solid fa-chart-line text-xl"></i>
-                                </div>
-                                <h3 class="text-xl font-bold text-slate-900 mb-2">SBR Framework Implementation</h3>
-                                <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">Performance Governance</p>
-                                <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">Institutionalized a supplier scorecard and review cadence, driving accountability and enabling ~30% vendor consolidation.</p>
-                            </div>
-                        </a>
+                <!-- Project 2: MPS -->
+                <a href="project-mps.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Office team collaborating with laptops" class="project-tile__image">
+                    <div class="project-tile__overlay"></div>
+                    <div class="project-tile__content">
+                        <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">Managed Print Services</p>
+                        <h3 class="text-2xl font-bold mb-3">MPS Optimization</h3>
+                        <p class="text-sm text-white/85 leading-relaxed">Consolidated print vendors and optimized fleet usage, resulting in significant reduction in cost-per-page.</p>
                     </div>
-                </div>
+                </a>
 
+                <!-- Project 3: Punchout Vendors -->
+                <a href="project-punchout.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&w=800&q=80" alt="Point of sale payment terminal" class="project-tile__image">
+                    <div class="project-tile__overlay"></div>
+                    <div class="project-tile__content">
+                        <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">e-Procurement</p>
+                        <h3 class="text-2xl font-bold mb-3">Punchout Integration</h3>
+                        <p class="text-sm text-white/85 leading-relaxed">Streamlined PR-to-PO process by integrating vendor catalogs directly into the ERP system.</p>
+                    </div>
+                </a>
+
+                <!-- Project 4: PR Automation & Enablement -->
+                <a href="project-automation.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Microchip close-up" class="project-tile__image">
+                    <div class="project-tile__overlay"></div>
+                    <div class="project-tile__content">
+                        <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">Transformation Enablement</p>
+                        <h3 class="text-2xl font-bold mb-3">PR Automation &amp; Enablement</h3>
+                        <p class="text-sm text-white/85 leading-relaxed">Stabilized PR routing and embedded intake logic to accelerate a newly restructured procurement operating model.</p>
+                    </div>
+                </a>
+
+                <!-- Project 5: Agentic AI for Legal Review -->
+                <a href="project-agentic.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="Abstract AI brain visualization" class="project-tile__image">
+                    <div class="project-tile__overlay"></div>
+                    <div class="project-tile__content">
+                        <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">AI &amp; Digital Governance</p>
+                        <h3 class="text-2xl font-bold mb-3">Agentic AI for Legal Review</h3>
+                        <p class="text-sm text-white/85 leading-relaxed">Designed an AI agent to act as a first-level reviewer for legal docs, reducing Legal touchpoints by 50% and accelerating initial review cycles by 70%.</p>
+                    </div>
+                </a>
+
+                <!-- Project 6: SBR Framework Implementation -->
+                <a href="project-sbr.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60">
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80" alt="Analytics meeting with charts" class="project-tile__image">
+                    <div class="project-tile__overlay"></div>
+                    <div class="project-tile__content">
+                        <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">Performance Governance</p>
+                        <h3 class="text-2xl font-bold mb-3">SBR Framework Implementation</h3>
+                        <p class="text-sm text-white/85 leading-relaxed">Institutionalized a supplier scorecard and review cadence, driving accountability and enabling ~30% vendor consolidation.</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
