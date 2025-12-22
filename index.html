@@ -115,6 +115,13 @@
             }
         }
 
+        @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+            .backdrop-blur-md,
+            .backdrop-blur-sm {
+                background-color: rgba(15, 23, 42, 0.85);
+            }
+        }
+
         /* Theme: Executive Noir */
         body {
             background-color: #0b0f1a;
@@ -263,7 +270,7 @@
                 <p class="text-slate-600 max-w-2xl mx-auto">Selected professional engagements where I owned the process from negotiation to implementation.</p>
             </div>
 
-            <div id="project-track" class="flex gap-6 overflow-x-hidden py-12 w-full cursor-ew-resize scroll-smooth">
+            <div id="project-track" class="flex gap-6 overflow-x-auto md:overflow-x-hidden py-12 w-full cursor-ew-resize scroll-smooth hide-scrollbar">
                 <!-- Project 1: Greenfield Security -->
                 <a href="project-greenfield.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
                     <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80" alt="Construction site with cranes" loading="eager" class="project-tile__image">
@@ -413,7 +420,7 @@
                 <p class="text-slate-600 max-w-2xl mx-auto">Areas where I lead category strategy, supplier selection and governance — presented as focused case cards.</p>
             </div>
 
-            <div id="expertise-track" class="flex gap-6 overflow-x-hidden py-12 w-full cursor-ew-resize scroll-smooth">
+            <div id="expertise-track" class="flex gap-6 overflow-x-auto md:overflow-x-hidden py-12 w-full cursor-ew-resize scroll-smooth hide-scrollbar">
                 <!-- Commodity 1: IT Hardware -->
                 <a href="commodity-it.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
                     <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Microchip close-up" class="project-tile__image">
@@ -695,11 +702,30 @@
 (function(){
   const track = document.getElementById('project-track');
   if (!track) return;
+  if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
+  let targetScroll = 0;
+  let isAnimating = false;
+
+  function smoothScroll() {
+    const current = track.scrollLeft;
+    const next = current + (targetScroll - current) * 0.12;
+    track.scrollLeft = Math.abs(next - targetScroll) < 0.5 ? targetScroll : next;
+    if (Math.abs(track.scrollLeft - targetScroll) < 0.5) {
+      isAnimating = false;
+      return;
+    }
+    requestAnimationFrame(smoothScroll);
+  }
+
   track.addEventListener('mousemove', (event) => {
     const x = event.clientX - track.getBoundingClientRect().left;
     const percentage = Math.max(0, Math.min(1, x / track.clientWidth));
     const maxScroll = track.scrollWidth - track.clientWidth;
-    track.scrollLeft = percentage * maxScroll;
+    targetScroll = percentage * maxScroll;
+    if (!isAnimating) {
+      isAnimating = true;
+      requestAnimationFrame(smoothScroll);
+    }
   });
 
   track.addEventListener('mouseleave', () => {
@@ -719,7 +745,11 @@
     });
 
     const targetLeft = nearest.offsetLeft - (track.clientWidth - nearest.offsetWidth) / 2;
-    track.scrollTo({ left: targetLeft, behavior: 'smooth' });
+    targetScroll = targetLeft;
+    if (!isAnimating) {
+      isAnimating = true;
+      requestAnimationFrame(smoothScroll);
+    }
   });
 })();
 </script>
@@ -728,11 +758,30 @@
 (function(){
   const track = document.getElementById('expertise-track');
   if (!track) return;
+  if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
+  let targetScroll = 0;
+  let isAnimating = false;
+
+  function smoothScroll() {
+    const current = track.scrollLeft;
+    const next = current + (targetScroll - current) * 0.12;
+    track.scrollLeft = Math.abs(next - targetScroll) < 0.5 ? targetScroll : next;
+    if (Math.abs(track.scrollLeft - targetScroll) < 0.5) {
+      isAnimating = false;
+      return;
+    }
+    requestAnimationFrame(smoothScroll);
+  }
+
   track.addEventListener('mousemove', (event) => {
     const x = event.clientX - track.getBoundingClientRect().left;
     const percentage = Math.max(0, Math.min(1, x / track.clientWidth));
     const maxScroll = track.scrollWidth - track.clientWidth;
-    track.scrollLeft = percentage * maxScroll;
+    targetScroll = percentage * maxScroll;
+    if (!isAnimating) {
+      isAnimating = true;
+      requestAnimationFrame(smoothScroll);
+    }
   });
 
   track.addEventListener('mouseleave', () => {
@@ -752,7 +801,11 @@
     });
 
     const targetLeft = nearest.offsetLeft - (track.clientWidth - nearest.offsetWidth) / 2;
-    track.scrollTo({ left: targetLeft, behavior: 'smooth' });
+    targetScroll = targetLeft;
+    if (!isAnimating) {
+      isAnimating = true;
+      requestAnimationFrame(smoothScroll);
+    }
   });
 })();
 </script>
