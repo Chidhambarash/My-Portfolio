@@ -7,10 +7,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Sora:wght@400;600;700&display=swap');
         
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Manrope', sans-serif;
             scroll-behavior: smooth;
         }
 
@@ -114,6 +114,58 @@
                 transition: none;
             }
         }
+
+        /* Theme: Executive Noir */
+        body {
+            background-color: #0b0f1a;
+            color: #e5e7eb;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Sora', sans-serif;
+            letter-spacing: -0.01em;
+        }
+
+        nav {
+            background-color: rgba(11, 15, 26, 0.85);
+            border-color: #1f2937;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #d4af37, #f8fafc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-blue-600 { color: #d4af37; }
+        .text-blue-500 { color: #e6c26a; }
+        .text-blue-400 { color: #f2d68a; }
+        .bg-blue-600 { background-color: #d4af37; }
+        .bg-blue-500 { background-color: #e6c26a; }
+        .bg-blue-100 { background-color: #2a2313; }
+        .bg-blue-50 { background-color: #1b1720; }
+        .border-blue-200 { border-color: #5a4a1a; }
+        .border-blue-100 { border-color: #3b3215; }
+        .hover\:bg-blue-700:hover { background-color: #b8860b; }
+        .hover\:text-blue-600:hover { color: #d4af37; }
+        .hover\:border-blue-200:hover { border-color: #5a4a1a; }
+        .shadow-blue-600\/20 { --tw-shadow-color: rgba(212, 175, 55, 0.2); }
+        .shadow-blue-600\/30 { --tw-shadow-color: rgba(212, 175, 55, 0.3); }
+        .focus-visible\:ring-blue-500\/60:focus-visible { --tw-ring-color: rgb(230 194 106 / 0.6); }
+
+        .bg-white { background-color: #111827; }
+        .bg-slate-50 { background-color: #0b0f1a; }
+        .bg-slate-900 { background-color: #0f172a; }
+        .text-slate-900 { color: #f8fafc; }
+        .text-slate-800 { color: #e5e7eb; }
+        .text-slate-600 { color: #a1a1aa; }
+        .text-slate-500 { color: #9ca3af; }
+        .border-slate-200 { border-color: #1f2937; }
+        .border-slate-100 { border-color: #111827; }
+        .ring-slate-200\/60 { --tw-ring-color: rgb(55 65 81 / 0.6); }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -123,13 +175,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0 font-bold text-xl tracking-tight text-slate-900">
-                    CM.
+                    Chidhambarash Mani
                 </div>
                 <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
                     <a href="#about" class="hover:text-blue-600 transition">About</a>
                     <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
                     <a href="#expertise" class="hover:text-blue-600 transition">Expertise</a>
-                    <a href="#tech-stack" class="hover:text-blue-600 transition">Tech Stack</a>
+                    <a href="#tech-stack" class="hover:text-blue-600 transition">Skill Matrix</a>
                     <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
                 </div>
                 <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-600/20">
@@ -140,9 +192,9 @@
     </nav>
 
     <!-- 1. HERO & ABOUT SECTION -->
-    <section id="about" class="pt-20 pb-24 bg-white overflow-hidden">
+    <section id="about" class="pt-16 pb-16 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
                 
                 <!-- Text Content (Left) -->
                 <div class="space-y-8">
@@ -204,16 +256,16 @@
     </section>
 
     <!-- 2. PROJECTS SECTION -->
-    <section id="projects" class="py-24 bg-slate-50">
+    <section id="projects" class="py-16 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="text-center mb-10">
                 <h2 class="text-3xl font-bold text-slate-900 mb-4">Key Projects</h2>
                 <p class="text-slate-600 max-w-2xl mx-auto">Selected professional engagements where I owned the process from negotiation to implementation.</p>
             </div>
 
-            <div id="project-track" class="flex gap-6 overflow-x-hidden py-12 px-4 w-full max-w-7xl mx-auto cursor-ew-resize scroll-smooth">
+            <div id="project-track" class="flex gap-6 overflow-x-hidden py-12 w-full cursor-ew-resize scroll-smooth">
                 <!-- Project 1: Greenfield Security -->
-                <a href="project-greenfield.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                <a href="project-greenfield.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
                     <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80" alt="Construction site with cranes" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
@@ -224,7 +276,7 @@
                 </a>
 
                 <!-- Project 2: MPS -->
-                <a href="project-mps.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                <a href="project-mps.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
                     <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" alt="Forest canopy with sunlight" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
@@ -235,7 +287,7 @@
                 </a>
 
                 <!-- Project 3: Punchout Vendors -->
-                <a href="project-punchout.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                <a href="project-punchout.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
                     <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=800&q=80" alt="Point of sale payment terminal" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
@@ -246,7 +298,7 @@
                 </a>
 
                 <!-- Project 4: PR Automation & Enablement -->
-                <a href="project-automation.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                <a href="project-automation.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
                     <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80" alt="Robotic arm in motion" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
@@ -257,7 +309,7 @@
                 </a>
 
                 <!-- Project 5: Agentic AI for Legal Review -->
-                <a href="project-agentic.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                <a href="project-agentic.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
                     <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="Abstract AI brain visualization" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
@@ -268,7 +320,7 @@
                 </a>
 
                 <!-- Project 6: SBR Framework Implementation -->
-                <a href="project-sbr.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                <a href="project-sbr.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
                     <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="Business handshake" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
@@ -278,20 +330,13 @@
                     </div>
                 </a>
             </div>
-        </div>
-    </section>
 
-    <!-- 3. CASE STUDIES & CRISIS MANAGEMENT (VISUALLY ENHANCED) -->
-    <section class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-                <div>
-                    <h2 class="text-3xl font-bold text-slate-900 mb-2">Case Studies</h2>
-                    <p class="text-slate-600">Crisis management and strategic analysis.</p>
-                </div>
+            <div class="mt-12 text-left">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2">Case Studies</h2>
+                <p class="text-slate-600">Crisis management and strategic analysis.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mt-8">
                 <!-- FEATURED CASE STUDY CARD with Featured Orgs Visuals -->
                 <div class="relative rounded-3xl overflow-hidden shadow-2xl lg:col-span-2 h-full min-h-[500px]">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#ef4444_0%,#0f172a_45%,#020617_100%)]"></div>
@@ -361,14 +406,14 @@
     </section>
 
     <!-- 4. COMMODITY EXPERTISE -->
-    <section id="expertise" class="py-24 bg-slate-50">
+    <section id="expertise" class="py-16 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-8">
                 <h2 class="text-3xl font-bold text-slate-900 mb-4">Commodity Expertise</h2>
                 <p class="text-slate-600 max-w-2xl mx-auto">Areas where I lead category strategy, supplier selection and governance — presented as focused case cards.</p>
             </div>
 
-            <div id="expertise-track" class="flex gap-6 overflow-x-hidden py-12 px-4 w-full max-w-7xl mx-auto cursor-ew-resize scroll-smooth">
+            <div id="expertise-track" class="flex gap-6 overflow-x-hidden py-12 w-full cursor-ew-resize scroll-smooth">
                 <!-- Commodity 1: IT Hardware -->
                 <a href="commodity-it.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
                     <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Microchip close-up" class="project-tile__image">
@@ -443,9 +488,9 @@
     </section>
 
     <!-- 5. INSPIRATIONS & 6. IMPACT (Combined for visual flow) -->
-    <section class="py-24 bg-white overflow-hidden">
+    <section class="py-16 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16">
+            <div class="grid lg:grid-cols-2 gap-8">
                 
                 <!-- Occupational Inspirations -->
                 <div>
@@ -488,182 +533,151 @@
         </div>
     </section>
 
-    <!-- 7. TECH STACK IN ACTION (replaces Skills & Dashboard) -->
-    <section id="tech-stack" class="py-24 bg-slate-900 text-white relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
-            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600 rounded-full blur-[120px]"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-600 rounded-full blur-[120px]"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <span class="bg-blue-600/20 text-blue-300 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/30 uppercase tracking-wider mb-4 inline-block">Digital Procurement</span>
-                <h2 class="text-3xl md:text-5xl font-bold mb-6">Tech Stack in Action</h2>
-                <blockquote class="text-xl italic text-slate-300 font-light max-w-2xl mx-auto border-l-4 border-blue-500 pl-6 py-2">
-                    “Tools don’t create value. How you design and apply them does.”
-                </blockquote>
+    <section id="tech-stack" class="py-16 bg-slate-50 text-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">Skill <span class="text-blue-600">Matrix</span></h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">My complete toolkit for modernizing supply chains—spanning strategy, technology, and leadership.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300 group">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 text-xl mr-4 group-hover:bg-blue-500 group-hover:text-white transition">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">Source-to-Pay</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold mb-1">What I Used</p>
-                            <p class="text-sm text-slate-200">SAP Ariba, Coupa, S/4HANA</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold mb-1">How I Applied It</p>
-                            <p class="text-sm text-slate-300 leading-relaxed">Designed PR intake logic aligned to category ownership. Implemented punch-out catalogs to eliminate manual creation.</p>
-                        </div>
-                        <div class="pt-4 border-t border-white/10">
-                            <p class="text-xs text-green-400 font-bold flex items-center"><i class="fa-solid fa-arrow-trend-up mr-2"></i> Reduced PR mis-routing by 90%</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300 group">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-indigo-500/20 rounded-lg flex items-center justify-center text-indigo-400 text-xl mr-4 group-hover:bg-indigo-500 group-hover:text-white transition">
-                            <i class="fa-solid fa-chart-simple"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">Analytics</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold mb-1">What I Used</p>
-                            <p class="text-sm text-slate-200">Power BI, Advanced Excel, VBA</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold mb-1">How I Applied It</p>
-                            <p class="text-sm text-slate-300 leading-relaxed">Built spend/SLA dashboards and Excel VBA macros running every 3 hours to validate and route PRs automatically.</p>
-                        </div>
-                        <div class="pt-4 border-t border-white/10">
-                            <p class="text-xs text-green-400 font-bold flex items-center"><i class="fa-solid fa-check mr-2"></i> Automated leadership reporting</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300 group">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-400 text-xl mr-4 group-hover:bg-purple-500 group-hover:text-white transition">
-                            <i class="fa-solid fa-gears"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">Workflow Auto</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold mb-1">What I Used</p>
-                            <p class="text-sm text-slate-200">Coupa, Slack Builder, Email Logic</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold mb-1">How I Applied It</p>
-                            <p class="text-sm text-slate-300 leading-relaxed">Built Slack-based approval workflows for leave/requests, replacing email chains with audit-ready trails.</p>
-                        </div>
-                        <div class="pt-4 border-t border-white/10">
-                            <p class="text-xs text-green-400 font-bold flex items-center"><i class="fa-solid fa-clock mr-2"></i> Faster approvals & less friction</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300 group">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center text-cyan-400 text-xl mr-4 group-hover:bg-cyan-500 group-hover:text-white transition">
-                            <i class="fa-solid fa-brain"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">AI &amp; GenAI</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold mb-1">What I Used</p>
-                            <p class="text-sm text-slate-200">Agentic AI (LLM), Prompt Eng.</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold mb-1">How I Applied It</p>
-                            <p class="text-sm text-slate-300 leading-relaxed">Designed an AI agent for first-level legal review to check SOWs and quotes for compliance risks automatically.</p>
-                        </div>
-                        <div class="pt-4 border-t border-white/10">
-                            <p class="text-xs text-green-400 font-bold flex items-center"><i class="fa-solid fa-bolt mr-2"></i> 70% faster initial review</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300 group">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center text-orange-400 text-xl mr-4 group-hover:bg-orange-500 group-hover:text-white transition">
-                            <i class="fa-solid fa-file-contract"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">Risk Governance</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold mb-1">What I Used</p>
-                            <p class="text-sm text-slate-200">Contract Law, SBR Frameworks</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold mb-1">How I Applied It</p>
-                            <p class="text-sm text-slate-300 leading-relaxed">Embedded performance metrics in contracts and led Supplier Business Reviews (SBRs) to drive accountability.</p>
-                        </div>
-                        <div class="pt-4 border-t border-white/10">
-                            <p class="text-xs text-green-400 font-bold flex items-center"><i class="fa-solid fa-users-slash mr-2"></i> Enabled 30% vendor consolidation</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300 group">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center text-emerald-400 text-xl mr-4 group-hover:bg-emerald-500 group-hover:text-white transition">
-                            <i class="fa-solid fa-lightbulb"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">Innovation Mindset</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold mb-1">How I Think</p>
-                            <p class="text-sm text-slate-200">"AI doesn’t replace procurement judgment — it sharpens it."</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold mb-1">Focus Areas</p>
-                            <p class="text-sm text-slate-300 leading-relaxed">Using tech to detect spend anomalies, flag unused licenses, and reduce low-value manual work.</p>
-                        </div>
-                        <div class="pt-4 border-t border-white/10">
-                            <p class="text-xs text-green-400 font-bold flex items-center"><i class="fa-solid fa-forward mr-2"></i> Future-proofing operations</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="flex flex-wrap gap-3 mb-8 justify-center">
+                <button onclick="switchTab('strategic')" id="btn-strategic" class="tab-btn active px-6 py-3 rounded-full border border-slate-200 bg-white text-slate-600 font-bold hover:border-blue-400 transition-all text-sm md:text-base flex items-center shadow-sm">
+                    <i class="fa-solid fa-briefcase mr-2"></i> Strategic Core
+                </button>
+                <button onclick="switchTab('digital')" id="btn-digital" class="tab-btn px-6 py-3 rounded-full border border-slate-200 bg-white text-slate-600 font-bold hover:border-blue-400 transition-all text-sm md:text-base flex items-center shadow-sm">
+                    <i class="fa-solid fa-microchip mr-2"></i> Digital Toolkit
+                </button>
+                <button onclick="switchTab('leadership')" id="btn-leadership" class="tab-btn px-6 py-3 rounded-full border border-slate-200 bg-white text-slate-600 font-bold hover:border-blue-400 transition-all text-sm md:text-base flex items-center shadow-sm">
+                    <i class="fa-solid fa-users mr-2"></i> Leadership
+                </button>
             </div>
 
-            <div class="mt-16 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 text-center shadow-2xl border border-white/10">
-                <h3 class="text-2xl font-bold mb-4">Why This Matters</h3>
-                <p class="text-blue-100 max-w-3xl mx-auto text-lg leading-relaxed mb-6">
-                    "I apply technology pragmatically, not theoretically. I build scalable, low-cost solutions that bridge Procurement, IT, and Finance—enabling transformation during periods of change."
-                </p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <span class="bg-white/20 px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm border border-white/10">Scalable Solutions</span>
-                    <span class="bg-white/20 px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm border border-white/10">Cross-Functional Bridge</span>
-                    <span class="bg-white/20 px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm border border-white/10">Digital Transformation</span>
+            <div class="bg-white rounded-[2rem] shadow-2xl border border-slate-200 overflow-hidden relative">
+                
+                <div id="panel-strategic" class="tab-panel active flex-col lg:flex-row items-stretch">
+                    <div class="w-full lg:w-8/12 p-8 md:p-10 bg-white self-stretch">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 text-xl border border-blue-100"><i class="fa-solid fa-list-check"></i></div>
+                            <div><h3 class="text-2xl font-bold text-slate-900">Core Competencies</h3><p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Business Value Drivers</p></div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition"><i class="fa-solid fa-file-signature text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Contract Negotiation</h4><p class="text-xs text-slate-500 mt-1">Redlining, liability clauses & multi-year deals.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition"><i class="fa-solid fa-earth-americas text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Global Sourcing</h4><p class="text-xs text-slate-500 mt-1">LCCS strategies & nearshoring analysis.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition"><i class="fa-solid fa-layer-group text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Category Management</h4><p class="text-xs text-slate-500 mt-1">Spend analysis & market intelligence.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-600 group-hover:text-white transition"><i class="fa-solid fa-handshake text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Supplier Mgmt (SRM)</h4><p class="text-xs text-slate-500 mt-1">QBRs & Performance Improvement.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-600 group-hover:text-white transition"><i class="fa-solid fa-truck-fast text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Logistics</h4><p class="text-xs text-slate-500 mt-1">Freight forwarding & Incoterms.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-600 group-hover:text-white transition"><i class="fa-solid fa-industry text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">CAPEX & Greenfield</h4><p class="text-xs text-slate-500 mt-1">Factory setup, OEM machinery & MRO.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-600 group-hover:text-white transition"><i class="fa-solid fa-calculator text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">TCO Analysis</h4><p class="text-xs text-slate-500 mt-1">Total Cost of Ownership modelling.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-600 group-hover:text-white transition"><i class="fa-solid fa-scale-balanced text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Make-or-Buy</h4><p class="text-xs text-slate-500 mt-1">Strategic outsourcing decisions.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition"><i class="fa-solid fa-leaf text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Sustainability (ESG)</h4><p class="text-xs text-slate-500 mt-1">Scope 3, Circular Economy & Carbon.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center flex-shrink-0 group-hover:bg-rose-600 group-hover:text-white transition"><i class="fa-solid fa-shield-halved text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Risk & Resilience</h4><p class="text-xs text-slate-500 mt-1">Geopolitics & Supply Chain Mapping.</p></div></div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-4/12 relative bg-slate-900 overflow-hidden group self-stretch">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-105 transition duration-1000" alt="Strategy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-slate-900/10"></div>
+                        <div class="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
+                            <div class="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-blue-900/50"><i class="fa-solid fa-briefcase"></i></div>
+                            <h3 class="text-2xl font-bold text-white mb-4">Strategic Value Creation</h3>
+                            <div class="border-l-4 border-blue-500 pl-4">
+                                <p class="text-sm md:text-base text-slate-200 leading-relaxed">"Procurement isn't just about the bottom line; it's about the horizon line. I move beyond simple unit-cost savings to structure resilient commercial ecosystems. By integrating <strong class="text-white">Total Cost of Ownership (TCO)</strong> modeling, geopolitical risk hedging, and sustainability goals, I transform supply chains into competitive advantages."</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+    <div id="panel-digital" class="tab-panel flex-col lg:flex-row items-stretch">
+                    <div class="w-full lg:w-8/12 p-8 md:p-10 bg-white self-stretch">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 text-xl border border-purple-100"><i class="fa-solid fa-microchip"></i></div>
+                            <div><h3 class="text-2xl font-bold text-slate-900">Digital Toolkit</h3><p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Tech Stack & ERPs</p></div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="space-y-4">
+                                <h4 class="text-blue-600 text-[10px] font-bold uppercase tracking-widest border-b border-blue-100 pb-2">Core Engines</h4>
+                                <div class="flex items-start group"><div class="mt-1 mr-3 w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-server text-[10px]"></i></div><div><h4 class="font-bold text-slate-800 text-sm">SAP S/4HANA</h4><p class="text-[10px] text-slate-500">MM, Ariba Network</p></div></div>
+                                <div class="flex items-start group"><div class="mt-1 mr-3 w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-circle-nodes text-[10px]"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Coupa</h4><p class="text-[10px] text-slate-500">P2P, Supplier Portal</p></div></div>
+                                <div class="flex items-start group"><div class="mt-1 mr-3 w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-file-contract text-[10px]"></i></div><div><h4 class="font-bold text-slate-800 text-sm">CLM & DocuSign</h4><p class="text-[10px] text-slate-500">Lifecycle & eSign</p></div></div>
+                                <div class="flex items-start group"><div class="mt-1 mr-3 w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0"><i class="fa-brands fa-jira text-[10px]"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Jira / Agile</h4><p class="text-[10px] text-slate-500">Sprints & Tracking</p></div></div>
+                            </div>
+                            <div class="space-y-4">
+                                <h4 class="text-purple-600 text-[10px] font-bold uppercase tracking-widest border-b border-purple-100 pb-2">Data Intel</h4>
+                                <div class="flex items-start group"><div class="mt-1 mr-3 w-6 h-6 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-chart-column text-[10px]"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Power BI</h4><p class="text-[10px] text-slate-500">Spend Dashboards</p></div></div>
+                                <div class="flex items-start group"><div class="mt-1 mr-3 w-6 h-6 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-chart-pie text-[10px]"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Tableau</h4><p class="text-[10px] text-slate-500">Visual Analytics</p></div></div>
+                                <div class="flex items-start group"><div class="mt-1 mr-3 w-6 h-6 rounded-lg bg-green-50 text-green-600 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-table text-[10px]"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Adv. Excel</h4><p class="text-[10px] text-slate-500">VBA, Macros</p></div></div>
+                                <div class="flex items-start group"><div class="mt-1 mr-3 w-6 h-6 rounded-lg bg-green-50 text-green-600 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-database text-[10px]"></i></div><div><h4 class="font-bold text-slate-800 text-sm">SQL</h4><p class="text-[10px] text-slate-500">Querying</p></div></div>
+                            </div>
+                            <div class="space-y-4">
+                                <h4 class="text-emerald-600 text-[10px] font-bold uppercase tracking-widest border-b border-emerald-100 pb-2">Automation</h4>
+                                <div class="flex items-start group"><div class="mt-1 mr-3 w-6 h-6 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0"><i class="fa-brands fa-slack text-[10px]"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Slack Flows</h4><p class="text-[10px] text-slate-500">No-Code Auto</p></div></div>
+                                <div class="flex items-start group"><div class="mt-1 mr-3 w-6 h-6 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-brain text-[10px]"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Agentic AI</h4><p class="text-[10px] text-slate-500">Custom GPTs</p></div></div>
+                                <div class="flex items-start group"><div class="mt-1 mr-3 w-6 h-6 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0"><i class="fa-brands fa-python text-[10px]"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Python</h4><p class="text-[10px] text-slate-500">Data Cleaning</p></div></div>
+                                <div class="flex items-start group"><div class="mt-1 mr-3 w-6 h-6 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-terminal text-[10px]"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Prompt Eng.</h4><p class="text-[10px] text-slate-500">AI Interaction</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+        <div class="w-full lg:w-4/12 relative bg-slate-900 overflow-hidden group self-stretch">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-105 transition duration-1000" alt="Tech">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-slate-900/10"></div>
+                        <div class="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
+                            <div class="w-14 h-14 bg-purple-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-purple-900/50"><i class="fa-solid fa-gears"></i></div>
+                            <h3 class="text-2xl font-bold text-white mb-4">Digital Enablement</h3>
+                            <div class="border-l-4 border-purple-500 pl-4">
+                                <p class="text-sm md:text-base text-slate-200 leading-relaxed">"Technology should be a lever, not a bottleneck. I treat the tech stack as an ecosystem—bridging heavy ERP foundations like <strong class="text-white">SAP & Coupa</strong> with agile automation tools like Agentic AI. My goal is clear: eliminate administrative friction to create a 'single source of truth'."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    <div id="panel-leadership" class="tab-panel flex-col lg:flex-row items-stretch">
+                    <div class="w-full lg:w-8/12 p-8 md:p-10 bg-white self-stretch">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600 text-xl border border-teal-100"><i class="fa-solid fa-users"></i></div>
+                            <div><h3 class="text-2xl font-bold text-slate-900">Leadership</h3><p class="text-xs text-slate-500 font-bold uppercase tracking-widest">The Human Element</p></div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center flex-shrink-0 group-hover:bg-teal-600 group-hover:text-white transition"><i class="fa-solid fa-user-group text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Stakeholder Mgmt</h4><p class="text-xs text-slate-500 mt-1">Aligning C-suite, Finance & Ops.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center flex-shrink-0 group-hover:bg-teal-600 group-hover:text-white transition"><i class="fa-solid fa-diagram-project text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Cross-Functional</h4><p class="text-xs text-slate-500 mt-1">Bridging Tech & Business gap.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center flex-shrink-0 group-hover:bg-teal-600 group-hover:text-white transition"><i class="fa-solid fa-earth-europe text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Intercultural Comm</h4><p class="text-xs text-slate-500 mt-1">Navigating global/EU cultures.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center flex-shrink-0 group-hover:bg-teal-600 group-hover:text-white transition"><i class="fa-solid fa-handshake-angle text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Conflict Resolution</h4><p class="text-xs text-slate-500 mt-1">Managing disputes proactively.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition"><i class="fa-solid fa-sync text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Change Mgmt</h4><p class="text-xs text-slate-500 mt-1">Driving tool adoption (Coupa/SAP).</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition"><i class="fa-solid fa-chess-knight text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Strategic Vision</h4><p class="text-xs text-slate-500 mt-1">From "Support" to "Value Add".</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition"><i class="fa-solid fa-rotate text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Agile Methodologies</h4><p class="text-xs text-slate-500 mt-1">Iterative delivery (Sprints/Scrum).</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition"><i class="fa-solid fa-bullhorn text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Storytelling</h4><p class="text-xs text-slate-500 mt-1">Translating data into narrative.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-600 group-hover:text-white transition"><i class="fa-solid fa-lightbulb text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Problem Solving</h4><p class="text-xs text-slate-500 mt-1">Root cause analysis (RCA).</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-600 group-hover:text-white transition"><i class="fa-solid fa-heart text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Emotional Intelligence</h4><p class="text-xs text-slate-500 mt-1">Building trust-based networks.</p></div></div>
+                        </div>
+                    </div>
+        <div class="w-full lg:w-4/12 relative bg-slate-900 overflow-hidden group self-stretch">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-105 transition duration-1000" alt="Leadership">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-slate-900/10"></div>
+                        <div class="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
+                            <div class="w-14 h-14 bg-teal-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-teal-900/50"><i class="fa-solid fa-users-viewfinder"></i></div>
+                            <h3 class="text-2xl font-bold text-white mb-4">Leading Change</h3>
+                            <div class="border-l-4 border-teal-500 pl-4">
+                                <p class="text-sm md:text-base text-slate-200 leading-relaxed">"The best strategy fails without adoption. I focus on the <strong class="text-white">'Human ROI'</strong>—building the consensus required to make change stick. Whether aligning C-suite objectives or navigating global supplier cultures, I translate complex procurement data into compelling narratives."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
         </div>
     </section>
 
     <!-- 9. CONTACT -->
-    <section id="contact" class="py-24 bg-white">
+    <section id="contact" class="py-16 bg-white">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold text-slate-900 mb-6">Ready to Optimize?</h2>
+            <h2 class="text-4xl font-bold text-slate-900 mb-6">Let’s <span class="text-blue-600">Collaborate.</span></h2>
             <p class="text-lg text-slate-600 mb-10">
-                I am currently looking for Procurement & Supply Chain opportunities in the EU. Let's discuss how I can bring value to your team.
+                Open to Procurement & Supply Chain challenges in the EU. Transforming spend data into business value—one project at a time.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="mailto:your-email@example.com" class="inline-flex justify-center items-center px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">
+                <a href="mailto:chidhambarashm@gmail.com" class="inline-flex justify-center items-center px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">
                     <i class="fa-solid fa-envelope mr-2"></i> Send Email
                 </a>
-                <a href="#" class="inline-flex justify-center items-center px-8 py-4 bg-slate-100 text-slate-900 font-bold rounded-xl hover:bg-slate-200 transition">
+                <a href="https://www.linkedin.com/in/chidhambarash-mani-a6529618b" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-8 py-4 bg-slate-100 text-slate-900 font-bold rounded-xl hover:bg-slate-200 transition">
                     <i class="fa-brands fa-linkedin mr-2"></i> LinkedIn
                 </a>
             </div>
@@ -671,9 +685,9 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-50 py-12 border-t border-slate-200">
+    <footer class="bg-slate-50 py-8 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
-            <p>&copy; 2025 Chidhambarash Mani. Built with Gemini Canvas.</p>
+            <p>&copy; 2025 Chidhambarash Mani.</p>
         </div>
     </footer>
 
@@ -741,6 +755,80 @@
     track.scrollTo({ left: targetLeft, behavior: 'smooth' });
   });
 })();
+</script>
+
+<script>
+(function(){
+  const tabs = Array.from(document.querySelectorAll('.tech-tab'));
+  const panels = Array.from(document.querySelectorAll('.tech-panel'));
+  if (!tabs.length || !panels.length) return;
+
+  function activate(panelId) {
+    panels.forEach((panel) => {
+      if (panel.id === panelId) {
+        panel.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          panel.classList.remove('opacity-0');
+          panel.classList.add('opacity-100');
+        });
+      } else {
+        panel.classList.add('opacity-0');
+        panel.classList.add('hidden');
+      }
+    });
+
+    tabs.forEach((tab) => {
+      const active = tab.dataset.panel === panelId;
+      tab.classList.toggle('bg-blue-600', active);
+      tab.classList.toggle('text-white', active);
+      tab.classList.toggle('bg-white', !active);
+      tab.classList.toggle('text-slate-600', !active);
+      tab.classList.toggle('border', !active);
+      tab.classList.toggle('border-slate-200', !active);
+    });
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => activate(tab.dataset.panel));
+  });
+
+  panels.forEach((panel, index) => {
+    if (index === 0) {
+      panel.classList.add('opacity-100');
+    } else {
+      panel.classList.add('hidden', 'opacity-0');
+    }
+    panel.classList.add('transition-opacity', 'duration-300');
+  });
+})();
+</script>
+
+<script>
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-btn').forEach((btn) => {
+    btn.classList.remove('active', 'bg-blue-600', 'text-white', 'border-blue-600');
+    btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+  });
+
+  const activeBtn = document.getElementById(`btn-${tabId}`);
+  if (activeBtn) {
+    activeBtn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+    activeBtn.classList.add('active', 'bg-blue-600', 'text-white', 'border-blue-600');
+  }
+
+  document.querySelectorAll('.tab-panel').forEach((panel) => {
+    panel.classList.remove('active', 'flex');
+    panel.classList.add('hidden');
+  });
+
+  const targetPanel = document.getElementById(`panel-${tabId}`);
+  if (targetPanel) {
+    targetPanel.classList.remove('hidden');
+    targetPanel.classList.add('flex');
+  }
+}
+
+switchTab('strategic');
 </script>
 
 </body>
