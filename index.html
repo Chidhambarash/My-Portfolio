@@ -39,6 +39,14 @@
             scrollbar-width: none;
         }
 
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         .project-tile {
             position: relative;
             overflow: hidden;
@@ -74,10 +82,12 @@
             padding: 2rem;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            justify-content: center;
+            align-items: center;
             color: #f8fafc;
             opacity: 0;
             transform: translateY(12px);
+            text-align: center;
         }
 
         .project-tile:hover .project-tile__image,
@@ -201,10 +211,10 @@
                 <p class="text-slate-600 max-w-2xl mx-auto">Selected professional engagements where I owned the process from negotiation to implementation.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div id="project-track" class="flex gap-6 overflow-x-hidden py-12 px-4 w-full max-w-7xl mx-auto cursor-ew-resize scroll-smooth">
                 <!-- Project 1: Greenfield Security -->
-                <a href="project-greenfield.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60">
-                    <img src="https://images.unsplash.com/photo-1565514020176-db8b3650228d?auto=format&fit=crop&w=800&q=80" alt="Warehouse construction site" class="project-tile__image">
+                <a href="project-greenfield.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80" alt="Construction site with cranes" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">Implementation &amp; Sourcing</p>
@@ -214,8 +224,8 @@
                 </a>
 
                 <!-- Project 2: MPS -->
-                <a href="project-mps.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Office team collaborating with laptops" class="project-tile__image">
+                <a href="project-mps.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" alt="Forest canopy with sunlight" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">Managed Print Services</p>
@@ -225,8 +235,8 @@
                 </a>
 
                 <!-- Project 3: Punchout Vendors -->
-                <a href="project-punchout.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60">
-                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&w=800&q=80" alt="Point of sale payment terminal" class="project-tile__image">
+                <a href="project-punchout.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                    <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=800&q=80" alt="Point of sale payment terminal" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">e-Procurement</p>
@@ -236,8 +246,8 @@
                 </a>
 
                 <!-- Project 4: PR Automation & Enablement -->
-                <a href="project-automation.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Microchip close-up" class="project-tile__image">
+                <a href="project-automation.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80" alt="Robotic arm in motion" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">Transformation Enablement</p>
@@ -247,8 +257,8 @@
                 </a>
 
                 <!-- Project 5: Agentic AI for Legal Review -->
-                <a href="project-agentic.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60">
-                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="Abstract AI brain visualization" class="project-tile__image">
+                <a href="project-agentic.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="Abstract AI brain visualization" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">AI &amp; Digital Governance</p>
@@ -258,8 +268,8 @@
                 </a>
 
                 <!-- Project 6: SBR Framework Implementation -->
-                <a href="project-sbr.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60">
-                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80" alt="Analytics meeting with charts" class="project-tile__image">
+                <a href="project-sbr.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="Business handshake" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">Performance Governance</p>
@@ -280,63 +290,71 @@
                     <p class="text-slate-600">Crisis management and strategic analysis.</p>
                 </div>
             </div>
-            
-            <!-- FEATURED CASE STUDY CARD with Featured Orgs Visuals -->
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl">
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#ef4444_0%,#0f172a_45%,#020617_100%)]"></div>
-                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')] opacity-10 mix-blend-soft-light"></div>
-                <div class="grid lg:grid-cols-2">
-                    <!-- Left: Content -->
-                    <div class="p-8 md:p-12 relative z-10 flex flex-col justify-center">
-                        <span class="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block w-fit">Flagship Analysis</span>
-                        <h3 class="text-3xl md:text-4xl font-extrabold mb-4 leading-tight text-white">Global Procurement <br> <span class="text-red-400">Reset 2025</span></h3>
-                        <p class="text-slate-300 leading-relaxed mb-8">
-                            A deep-dive analysis of why modern sourcing assumptions (Sovereignty, Vertical Integration) broke under pressure in 2025.
-                        </p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="case-study-global-procurement-reset-2025.html" class="inline-flex items-center bg-white text-slate-900 px-6 py-3 rounded-lg font-bold hover:bg-slate-200 transition">
-                                Read Full Analysis <i class="fa-solid fa-arrow-right ml-2"></i>
-                            </a>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
+                <!-- FEATURED CASE STUDY CARD with Featured Orgs Visuals -->
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl lg:col-span-2 h-full min-h-[500px]">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#ef4444_0%,#0f172a_45%,#020617_100%)]"></div>
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')] opacity-10 mix-blend-soft-light"></div>
+                    <div class="grid md:grid-cols-2 h-full">
+                        <!-- Left: Content -->
+                        <div class="p-8 md:p-12 relative z-10 flex flex-col justify-center">
+                            <span class="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block w-fit">Flagship Analysis</span>
+                            <h3 class="text-3xl md:text-4xl font-extrabold mb-4 leading-tight text-white">Global Procurement <br> <span class="text-red-400">Reset 2025</span></h3>
+                            <p class="text-slate-300 leading-relaxed mb-8">
+                                A deep-dive analysis of why modern sourcing assumptions (Sovereignty, Vertical Integration) broke under pressure in 2025.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="case-study-global-procurement-reset-2025.html" class="inline-flex items-center bg-white text-slate-900 px-6 py-3 rounded-lg font-bold hover:bg-slate-200 transition">
+                                    Read Full Analysis <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Right: Featured Orgs Visuals -->
+                        <div class="relative h-[300px] md:h-full bg-slate-900/70 backdrop-blur-sm p-8 md:p-12 flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/10">
+                            <h4 class="text-slate-300 text-xs font-bold uppercase tracking-widest mb-6">Analyzed Organizations</h4>
+                            <div class="grid grid-rows-3 gap-4">
+                                
+                                <!-- Northvolt Card -->
+                                <div class="group relative h-24 rounded-xl overflow-hidden cursor-default ring-1 ring-white/5 bg-slate-800">
+                                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Battery factory production line" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 transition duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/50 to-transparent"></div>
+                                    <div class="relative z-10 flex flex-col justify-center h-full px-6">
+                                        <h5 class="text-white font-bold text-lg">Northvolt</h5>
+                                        <p class="text-red-400 text-xs font-semibold uppercase tracking-wide">Battery Sovereignty Failure</p>
+                                    </div>
+                                </div>
+
+                                <!-- VW Card -->
+                                <div class="group relative h-24 rounded-xl overflow-hidden cursor-default ring-1 ring-white/5">
+                                    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Automotive production line" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 transition duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/50 to-transparent"></div>
+                                    <div class="relative z-10 flex flex-col justify-center h-full px-6">
+                                        <h5 class="text-white font-bold text-lg">Volkswagen</h5>
+                                        <p class="text-orange-400 text-xs font-semibold uppercase tracking-wide">The "Make vs Buy" Reckoning</p>
+                                    </div>
+                                </div>
+
+                                <!-- Maersk Card -->
+                                <div class="group relative h-24 rounded-xl overflow-hidden cursor-default ring-1 ring-white/5 bg-slate-800">
+                                    <img src="https://images.unsplash.com/photo-1465447142348-e9952c393450?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Container port operations" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 transition duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/50 to-transparent"></div>
+                                    <div class="relative z-10 flex flex-col justify-center h-full px-6">
+                                        <h5 class="text-white font-bold text-lg">Maersk vs DSV</h5>
+                                        <p class="text-emerald-400 text-xs font-semibold uppercase tracking-wide">Ownership vs Control</p>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Right: Featured Orgs Visuals -->
-                    <div class="relative bg-slate-900/70 backdrop-blur-sm p-8 md:p-12 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/10">
-                        <h4 class="text-slate-300 text-xs font-bold uppercase tracking-widest mb-6">Analyzed Organizations</h4>
-                        <div class="grid grid-rows-3 gap-4">
-                            
-                            <!-- Northvolt Card -->
-                            <div class="group relative h-24 rounded-xl overflow-hidden cursor-default ring-1 ring-white/5 bg-slate-800">
-                                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Battery factory production line" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 transition duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/50 to-transparent"></div>
-                                <div class="relative z-10 flex flex-col justify-center h-full px-6">
-                                    <h5 class="text-white font-bold text-lg">Northvolt</h5>
-                                    <p class="text-red-400 text-xs font-semibold uppercase tracking-wide">Battery Sovereignty Failure</p>
-                                </div>
-                            </div>
-
-                            <!-- VW Card -->
-                            <div class="group relative h-24 rounded-xl overflow-hidden cursor-default ring-1 ring-white/5">
-                                <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Automotive production line" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 transition duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/50 to-transparent"></div>
-                                <div class="relative z-10 flex flex-col justify-center h-full px-6">
-                                    <h5 class="text-white font-bold text-lg">Volkswagen</h5>
-                                    <p class="text-orange-400 text-xs font-semibold uppercase tracking-wide">The "Make vs Buy" Reckoning</p>
-                                </div>
-                            </div>
-
-                            <!-- Maersk Card -->
-                            <div class="group relative h-24 rounded-xl overflow-hidden cursor-default ring-1 ring-white/5 bg-slate-800">
-                                <img src="https://images.unsplash.com/photo-1465447142348-e9952c393450?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Container port operations" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 transition duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/50 to-transparent"></div>
-                                <div class="relative z-10 flex flex-col justify-center h-full px-6">
-                                    <h5 class="text-white font-bold text-lg">Maersk vs DSV</h5>
-                                    <p class="text-emerald-400 text-xs font-semibold uppercase tracking-wide">Ownership vs Control</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                <div class="relative rounded-3xl overflow-hidden shadow-lg border-2 border-dashed border-slate-200 bg-slate-50 flex flex-col items-center justify-center p-8 text-center h-full min-h-[400px] lg:col-span-1">
+                    <i class="fa-solid fa-lock text-4xl text-slate-300 mb-4"></i>
+                    <h3 class="text-xl font-bold text-slate-400">Upcoming Case Study</h3>
+                    <p class="text-slate-400 text-sm mt-2">Deep Dive into AI Governance...</p>
                 </div>
             </div>
         </div>
@@ -350,68 +368,76 @@
                 <p class="text-slate-600 max-w-2xl mx-auto">Areas where I lead category strategy, supplier selection and governance — presented as focused case cards.</p>
             </div>
 
-            <div class="relative">
-                <div id="expertise-scroller" class="flex items-stretch gap-6 overflow-x-auto no-scrollbar py-6 px-2 snap-x snap-mandatory" tabindex="0">
-
-                    <!-- Commodity 1: IT Hardware -->
-                    <article class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-center">
+            <div id="expertise-track" class="flex gap-6 overflow-x-hidden py-12 px-4 w-full max-w-7xl mx-auto cursor-ew-resize scroll-smooth">
+                <!-- Commodity 1: IT Hardware -->
+                <a href="commodity-it.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Microchip close-up" class="project-tile__image">
+                    <div class="project-tile__overlay"></div>
+                    <div class="project-tile__content">
                         <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
                             <i class="fa-solid fa-laptop-code text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">IT Hardware & Software</h3>
-                        <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">Tech Procurement</p>
-                        <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">Deep understanding of licensing models (SaaS), hardware lifecycle management, and cloud infrastructure contracting. My POV: Focus on TCO rather than upfront unit cost.</p>
-                        <a href="commodity-it.html" class="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-blue-700 mt-auto">View Strategy <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></a>
-                    </article>
+                        <h3 class="text-2xl font-bold mb-3">IT Hardware & Software</h3>
+                        <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-4">Tech Procurement</p>
+                        <p class="text-sm text-white/85 leading-relaxed">Deep understanding of licensing models (SaaS), hardware lifecycle management, and cloud infrastructure contracting. My POV: Focus on TCO rather than upfront unit cost.</p>
+                    </div>
+                </a>
 
-                    <!-- Commodity 2: Facilities -->
-                    <article class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-center">
+                <!-- Commodity 2: Facilities -->
+                <a href="commodity-fm.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Office building interior" class="project-tile__image">
+                    <div class="project-tile__overlay"></div>
+                    <div class="project-tile__content">
                         <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-6">
                             <i class="fa-solid fa-building text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Facilities Management</h3>
-                        <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">Indirect Spend</p>
-                        <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">Experience negotiating with IFM providers, energy contracts, and soft services. My POV: Performance-based SLAs are critical for service quality retention.</p>
-                        <a href="commodity-fm.html" class="inline-flex items-center text-orange-600 font-semibold text-sm hover:text-orange-700 mt-auto">View Strategy <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></a>
-                    </article>
+                        <h3 class="text-2xl font-bold mb-3">Facilities Management</h3>
+                        <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-4">Indirect Spend</p>
+                        <p class="text-sm text-white/85 leading-relaxed">Experience negotiating with IFM providers, energy contracts, and soft services. My POV: Performance-based SLAs are critical for service quality retention.</p>
+                    </div>
+                </a>
 
-                    <!-- Commodity 3: Marketing & Events -->
-                    <article class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-center">
+                <!-- Commodity 3: Marketing & Events -->
+                <a href="commodity-marketing.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80" alt="Creative team meeting" class="project-tile__image">
+                    <div class="project-tile__overlay"></div>
+                    <div class="project-tile__content">
                         <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center text-pink-600 mb-6">
                             <i class="fa-solid fa-bullhorn text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Marketing & Events</h3>
-                        <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">Marketing Services</p>
-                        <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">Handling agency retainers, media buying, and event logistics. My POV: Decoupling production from creative fees drives cost transparency.</p>
-                        <a href="commodity-marketing.html" class="inline-flex items-center text-pink-600 font-semibold text-sm hover:text-pink-700 mt-auto">View Strategy <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></a>
-                    </article>
+                        <h3 class="text-2xl font-bold mb-3">Marketing & Events</h3>
+                        <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-4">Marketing Services</p>
+                        <p class="text-sm text-white/85 leading-relaxed">Handling agency retainers, media buying, and event logistics. My POV: Decoupling production from creative fees drives cost transparency.</p>
+                    </div>
+                </a>
 
-                    <!-- Commodity 4: Logistics & Fleet -->
-                    <article class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-center">
+                <!-- Commodity 4: Logistics & Fleet -->
+                <a href="commodity-logistics.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Shipping containers at port" class="project-tile__image">
+                    <div class="project-tile__overlay"></div>
+                    <div class="project-tile__content">
                         <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-600 mb-6">
                             <i class="fa-solid fa-truck-fast text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Logistics & Fleet</h3>
-                        <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">Supply Chain</p>
-                        <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">3PL negotiation, freight forwarding, and fleet leasing. My POV: Utilizing fuel hedging and route optimization analysis are key levers.</p>
-                        <a href="commodity-logistics.html" class="inline-flex items-center text-emerald-600 font-semibold text-sm hover:text-emerald-700 mt-auto">View Strategy <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></a>
-                    </article>
+                        <h3 class="text-2xl font-bold mb-3">Logistics & Fleet</h3>
+                        <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-4">Supply Chain</p>
+                        <p class="text-sm text-white/85 leading-relaxed">3PL negotiation, freight forwarding, and fleet leasing. My POV: Utilizing fuel hedging and route optimization analysis are key levers.</p>
+                    </div>
+                </a>
 
-                    <!-- Commodity 5: HR & Services -->
-                    <article class="flex-shrink-0 w-[320px] sm:w-[360px] md:w-[420px] bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-hover transition duration-300 flex flex-col snap-center">
+                <!-- Commodity 5: HR & Services -->
+                <a href="commodity-hr.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" alt="Team collaboration" class="project-tile__image">
+                    <div class="project-tile__overlay"></div>
+                    <div class="project-tile__content">
                         <div class="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center text-violet-700 mb-6">
                             <i class="fa-solid fa-users-gear text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">HR & Services</h3>
-                        <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-4">Professional Services</p>
-                        <p class="text-slate-600 mb-6 text-sm leading-relaxed flex-grow">Contingent labor (MSP/VMS), recruitment agencies, and consultancy contracts. My POV: Standardizing rate cards and ensuring labor compliance are priority.</p>
-                        <a href="commodity-hr.html" class="inline-flex items-center text-violet-700 font-semibold text-sm hover:text-violet-800 mt-auto">View Strategy <i class="fa-solid fa-arrow-right ml-2 text-xs"></i></a>
-                    </article>
-
-                </div>
-
-                <button id="exp-prev" class="hidden md:flex items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow z-20"><i class="fa-solid fa-chevron-left text-slate-600"></i></button>
-                <button id="exp-next" class="hidden md:flex items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow z-20"><i class="fa-solid fa-chevron-right text-slate-600"></i></button>
+                        <h3 class="text-2xl font-bold mb-3">HR & Services</h3>
+                        <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-4">Professional Services</p>
+                        <p class="text-sm text-white/85 leading-relaxed">Contingent labor (MSP/VMS), recruitment agencies, and consultancy contracts. My POV: Standardizing rate cards and ensuring labor compliance are priority.</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -653,44 +679,66 @@
 
 <script>
 (function(){
-  const container = document.getElementById('expertise-scroller');
-  if (!container) return;
-  const prev = document.getElementById('exp-prev');
-  const next = document.getElementById('exp-next');
-  next.addEventListener('click', ()=> container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' }));
-  prev.addEventListener('click', ()=> container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' }));
-
-  function updateButtons(){
-    prev.style.display = container.scrollLeft > 0 ? 'flex' : 'none';
-    next.style.display = container.scrollLeft + container.clientWidth < container.scrollWidth - 1 ? 'flex' : 'none';
-  }
-
-  container.addEventListener('scroll', updateButtons);
-  window.addEventListener('resize', updateButtons);
-  updateButtons();
-
-  container.addEventListener('keydown', (e)=>{
-    if (e.key === 'ArrowRight') container.scrollBy({ left: 320, behavior: 'smooth' });
-    if (e.key === 'ArrowLeft') container.scrollBy({ left: -320, behavior: 'smooth' });
+  const track = document.getElementById('project-track');
+  if (!track) return;
+  track.addEventListener('mousemove', (event) => {
+    const x = event.clientX - track.getBoundingClientRect().left;
+    const percentage = Math.max(0, Math.min(1, x / track.clientWidth));
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    track.scrollLeft = percentage * maxScroll;
   });
 
-  // Auto-center to nearest card after user scrolls (debounced)
-  function snapToNearest(){
-    const children = Array.from(container.children).filter(c => c.classList && c.classList.contains('snap-center') );
-    if (!children.length) return;
-    const center = container.scrollLeft + container.clientWidth / 2;
-    let nearest = children.reduce((best, el)=>{
-      const elCenter = el.offsetLeft + el.offsetWidth / 2;
-      return Math.abs(elCenter - center) < Math.abs((best.offsetLeft + best.offsetWidth / 2) - center) ? el : best;
-    }, children[0]);
-    const targetLeft = nearest.offsetLeft - (container.clientWidth - nearest.offsetWidth) / 2;
-    container.scrollTo({ left: targetLeft, behavior: 'smooth' });
-  }
+  track.addEventListener('mouseleave', () => {
+    const cards = Array.from(track.children);
+    if (!cards.length) return;
+    const center = track.scrollLeft + track.clientWidth / 2;
+    let nearest = cards[0];
+    let nearestDistance = Math.abs((nearest.offsetLeft + nearest.offsetWidth / 2) - center);
 
-  let snapTimer;
-  container.addEventListener('scroll', ()=>{
-    clearTimeout(snapTimer);
-    snapTimer = setTimeout(snapToNearest, 120);
+    cards.forEach((card) => {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const distance = Math.abs(cardCenter - center);
+      if (distance < nearestDistance) {
+        nearest = card;
+        nearestDistance = distance;
+      }
+    });
+
+    const targetLeft = nearest.offsetLeft - (track.clientWidth - nearest.offsetWidth) / 2;
+    track.scrollTo({ left: targetLeft, behavior: 'smooth' });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  const track = document.getElementById('expertise-track');
+  if (!track) return;
+  track.addEventListener('mousemove', (event) => {
+    const x = event.clientX - track.getBoundingClientRect().left;
+    const percentage = Math.max(0, Math.min(1, x / track.clientWidth));
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    track.scrollLeft = percentage * maxScroll;
+  });
+
+  track.addEventListener('mouseleave', () => {
+    const cards = Array.from(track.children);
+    if (!cards.length) return;
+    const center = track.scrollLeft + track.clientWidth / 2;
+    let nearest = cards[0];
+    let nearestDistance = Math.abs((nearest.offsetLeft + nearest.offsetWidth / 2) - center);
+
+    cards.forEach((card) => {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const distance = Math.abs(cardCenter - center);
+      if (distance < nearestDistance) {
+        nearest = card;
+        nearestDistance = distance;
+      }
+    });
+
+    const targetLeft = nearest.offsetLeft - (track.clientWidth - nearest.offsetWidth) / 2;
+    track.scrollTo({ left: targetLeft, behavior: 'smooth' });
   });
 })();
 </script>
