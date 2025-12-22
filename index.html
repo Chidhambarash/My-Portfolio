@@ -115,6 +115,22 @@
             }
         }
 
+        @media (hover: none) {
+            .project-tile .project-tile__image {
+                transform: scale(1.05);
+                filter: blur(4px);
+            }
+
+            .project-tile .project-tile__overlay {
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+
+            .project-tile .project-tile__content {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
             .backdrop-blur-md,
             .backdrop-blur-sm {
