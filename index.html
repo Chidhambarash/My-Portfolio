@@ -113,6 +113,19 @@
             transform: scale(1.15);
         }
 
+        .project-tile.is-active .project-tile__overlay {
+            opacity: 1;
+        }
+
+        .project-tile.is-active .project-tile__content {
+            opacity: 1;
+            transform: translateY(0) translateZ(30px);
+        }
+
+        .project-tile.is-active .project-tile__image {
+            transform: scale(1.15);
+        }
+
         @media (prefers-reduced-motion: reduce) {
             .project-tile__image,
             .project-tile__overlay,
@@ -125,19 +138,6 @@
             .backdrop-blur-md,
             .backdrop-blur-sm {
                 background-color: rgba(15, 23, 42, 0.85);
-            }
-        }
-
-        @media (hover: none) {
-            #project-track .project-tile__overlay,
-            #expertise-track .project-tile__overlay {
-                opacity: 1;
-            }
-
-            #project-track .project-tile__content,
-            #expertise-track .project-tile__content {
-                opacity: 1;
-                transform: translateY(0) translateZ(30px);
             }
         }
 
@@ -901,6 +901,31 @@ document.querySelectorAll('.project-tile').forEach(card => {
         card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
     });
 });
+</script>
+
+<script>
+(function(){
+  const isTouch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  if (!isTouch) return;
+
+  ['project-track', 'expertise-track'].forEach(trackId => {
+    const track = document.getElementById(trackId);
+    if (!track) return;
+    const cards = Array.from(track.querySelectorAll('.project-tile'));
+    cards.forEach((card) => {
+      card.addEventListener('click', (e) => {
+        const alreadyActive = card.classList.contains('is-active');
+        if (!alreadyActive) {
+          e.preventDefault();
+          cards.forEach(c => c.classList.remove('is-active'));
+          card.classList.add('is-active');
+        } else {
+          cards.forEach(c => c.classList.remove('is-active'));
+        }
+      });
+    });
+  });
+})();
 </script>
 
 </body>
