@@ -82,6 +82,7 @@
             opacity: 0;
             transition: opacity 0.3s ease;
             z-index: 2;
+            pointer-events: none;
         }
 
         .project-tile__content {
@@ -884,6 +885,7 @@ switchTab('strategic');
 <script>
 document.querySelectorAll('.project-tile').forEach(card => {
     card.addEventListener('mousemove', (e) => {
+        if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
@@ -898,6 +900,7 @@ document.querySelectorAll('.project-tile').forEach(card => {
     });
 
     card.addEventListener('mouseleave', () => {
+        if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
         card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
     });
 });
@@ -912,17 +915,31 @@ document.querySelectorAll('.project-tile').forEach(card => {
     const track = document.getElementById(trackId);
     if (!track) return;
     const cards = Array.from(track.querySelectorAll('.project-tile'));
-    cards.forEach((card) => {
-      card.addEventListener('click', (e) => {
-        const alreadyActive = card.classList.contains('is-active');
-        if (!alreadyActive) {
-          e.preventDefault();
-          cards.forEach(c => c.classList.remove('is-active'));
-          card.classList.add('is-active');
-        } else {
-          cards.forEach(c => c.classList.remove('is-active'));
-        }
-      });
+    let active = null;
+
+    track.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'touch') return;
+      const card = e.target.closest('.project-tile');
+      if (!card || !track.contains(card)) return;
+
+      if (active !== card) {
+        e.preventDefault();
+        if (active) active.classList.remove('is-active');
+        card.classList.add('is-active');
+        active = card;
+      } else {
+        active.classList.remove('is-active');
+        active = null;
+        // allow navigation on second tap
+      }
+    });
+
+    document.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'touch') return;
+      if (!track.contains(e.target) && active) {
+        active.classList.remove('is-active');
+        active = null;
+      }
     });
   });
 })();
