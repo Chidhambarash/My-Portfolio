@@ -26,7 +26,7 @@
         }
 
         .card-hover:hover {
-            transform: translateY(-5px);
+            transform: none;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
 
@@ -53,12 +53,15 @@
             border-radius: 1.5rem;
             height: 400px;
             text-decoration: none;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+            background: #000;
         }
 
-        .project-tile__image,
-        .project-tile__overlay,
-        .project-tile__content {
-            transition: transform 0.6s ease, opacity 0.6s ease, filter 0.6s ease, background-color 0.6s ease;
+        .project-tile:hover {
+            transform: none;
+            z-index: 10;
         }
 
         .project-tile__image {
@@ -67,44 +70,47 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            z-index: 1;
+            transition: transform 0.4s ease-out;
+            transform: scale(1.05);
         }
 
         .project-tile__overlay {
             position: absolute;
             inset: 0;
-            background-color: rgba(0, 0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
         }
 
         .project-tile__content {
             position: relative;
-            z-index: 1;
+            z-index: 10;
             height: 100%;
             padding: 2rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: #f8fafc;
-            opacity: 0;
-            transform: translateY(12px);
             text-align: center;
+            opacity: 0;
+            transform: translateY(20px) translateZ(30px);
+            transition: all 0.3s ease;
+            pointer-events: none;
         }
 
-        .project-tile:hover .project-tile__image,
-        .project-tile:focus-visible .project-tile__image {
-            transform: scale(1.1);
-            filter: blur(4px);
-        }
-
-        .project-tile:hover .project-tile__overlay,
-        .project-tile:focus-visible .project-tile__overlay {
-            background-color: rgba(0, 0, 0, 0.6);
-        }
-
-        .project-tile:hover .project-tile__content,
-        .project-tile:focus-visible .project-tile__content {
+        .project-tile:hover .project-tile__overlay {
             opacity: 1;
-            transform: translateY(0);
+        }
+
+        .project-tile:hover .project-tile__content {
+            opacity: 1;
+            transform: translateY(0) translateZ(30px);
+        }
+
+        .project-tile:hover .project-tile__image {
+            transform: scale(1.15);
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -112,22 +118,6 @@
             .project-tile__overlay,
             .project-tile__content {
                 transition: none;
-            }
-        }
-
-        @media (hover: none) {
-            .project-tile .project-tile__image {
-                transform: scale(1.05);
-                filter: blur(4px);
-            }
-
-            .project-tile .project-tile__overlay {
-                background-color: rgba(0, 0, 0, 0.6);
-            }
-
-            .project-tile .project-tile__content {
-                opacity: 1;
-                transform: translateY(0);
             }
         }
 
@@ -286,7 +276,7 @@
                 <p class="text-slate-600 max-w-2xl mx-auto">Selected professional engagements where I owned the process from negotiation to implementation.</p>
             </div>
 
-            <div id="project-track" class="flex gap-6 overflow-x-auto md:overflow-x-hidden py-12 w-full cursor-ew-resize scroll-smooth hide-scrollbar">
+            <div id="project-track" class="flex gap-6 overflow-x-hidden py-12 w-full cursor-ew-resize scroll-auto hide-scrollbar">
                 <!-- Project 1: Greenfield Security -->
                 <a href="project-greenfield.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
                     <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80" alt="Construction site with cranes" loading="eager" class="project-tile__image">
@@ -719,29 +709,11 @@
   const track = document.getElementById('project-track');
   if (!track) return;
   if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
-  let targetScroll = 0;
-  let isAnimating = false;
-
-  function smoothScroll() {
-    const current = track.scrollLeft;
-    const next = current + (targetScroll - current) * 0.12;
-    track.scrollLeft = Math.abs(next - targetScroll) < 0.5 ? targetScroll : next;
-    if (Math.abs(track.scrollLeft - targetScroll) < 0.5) {
-      isAnimating = false;
-      return;
-    }
-    requestAnimationFrame(smoothScroll);
-  }
-
   track.addEventListener('mousemove', (event) => {
     const x = event.clientX - track.getBoundingClientRect().left;
     const percentage = Math.max(0, Math.min(1, x / track.clientWidth));
     const maxScroll = track.scrollWidth - track.clientWidth;
-    targetScroll = percentage * maxScroll;
-    if (!isAnimating) {
-      isAnimating = true;
-      requestAnimationFrame(smoothScroll);
-    }
+    track.scrollLeft = percentage * maxScroll;
   });
 
   track.addEventListener('mouseleave', () => {
@@ -761,11 +733,7 @@
     });
 
     const targetLeft = nearest.offsetLeft - (track.clientWidth - nearest.offsetWidth) / 2;
-    targetScroll = targetLeft;
-    if (!isAnimating) {
-      isAnimating = true;
-      requestAnimationFrame(smoothScroll);
-    }
+    track.scrollLeft = targetLeft;
   });
 })();
 </script>
@@ -898,6 +866,28 @@ function switchTab(tabId) {
 }
 
 switchTab('strategic');
+</script>
+
+<script>
+document.querySelectorAll('.project-tile').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / 20) * -1;
+        const rotateY = (x - centerX) / 20;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+    });
+});
 </script>
 
 </body>
