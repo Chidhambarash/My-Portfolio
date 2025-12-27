@@ -861,7 +861,27 @@ scrollButtons.forEach((btn) => {
 (function() {
   const track = document.getElementById('project-track');
   if (!track) return;
+
   const scrollable = () => track.scrollWidth > track.clientWidth;
+  let target = track.scrollLeft;
+  let rafId = 0;
+
+  const animate = () => {
+    rafId = 0;
+    const current = track.scrollLeft;
+    const dist = target - current;
+    if (Math.abs(dist) < 0.5) {
+      track.scrollLeft = target;
+      return;
+    }
+    track.scrollLeft = current + dist * 0.25;
+    rafId = requestAnimationFrame(animate);
+  };
+
+  const enqueue = (delta) => {
+    target = Math.min(track.scrollWidth - track.clientWidth, Math.max(0, target + delta));
+    if (!rafId) rafId = requestAnimationFrame(animate);
+  };
 
   const handleWheel = (e) => {
     if (!track.contains(e.target)) return;
@@ -869,7 +889,7 @@ scrollButtons.forEach((btn) => {
     const deltaY = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY; // normalize line vs pixel
     if (Math.abs(deltaY) <= Math.abs(e.deltaX)) return;
     e.preventDefault();
-    track.scrollBy({ left: deltaY, behavior: 'smooth' });
+    enqueue(deltaY);
   };
 
   track.addEventListener('wheel', handleWheel, { passive: false });
