@@ -201,10 +201,43 @@
         .skill-icon {
             transition: background-color 0.2s ease, color 0.2s ease;
         }
-        .group:hover .skill-icon-blue { background-color: #b97225; color: #ffffff; }
-        .group:hover .skill-icon-purple { background-color: #7c3aed; color: #ffffff; }
-        .group:hover .skill-icon-emerald { background-color: #059669; color: #ffffff; }
-        .group:hover .skill-icon-teal { background-color: #0d9488; color: #ffffff; }
+        .group:hover .skill-icon-blue,
+        .group:focus-within .skill-icon-blue,
+        .group:active .skill-icon-blue { background-color: #b97225; color: #ffffff; }
+        .group:hover .skill-icon-purple,
+        .group:focus-within .skill-icon-purple,
+        .group:active .skill-icon-purple { background-color: #7c3aed; color: #ffffff; }
+        .group:hover .skill-icon-emerald,
+        .group:focus-within .skill-icon-emerald,
+        .group:active .skill-icon-emerald { background-color: #059669; color: #ffffff; }
+        .group:hover .skill-icon-teal,
+        .group:focus-within .skill-icon-teal,
+        .group:active .skill-icon-teal { background-color: #0d9488; color: #ffffff; }
+
+        /* Active tab panel highlight */
+        .tab-panel.active {
+            background: linear-gradient(135deg, rgba(249, 239, 225, 0.7), #ffffff);
+            border: 2px solid #e7c99d;
+        }
+
+        /* Tab button active highlight */
+        .tab-btn {
+            box-shadow: 0 6px 18px -8px rgba(0,0,0,0.25);
+            transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+        }
+        .tab-btn.active {
+            background: linear-gradient(135deg, #b97225, #f1c46f);
+            color: #0f172a;
+            border-color: #e7c99d;
+            box-shadow: 0 10px 24px -10px rgba(185, 114, 37, 0.45);
+            transform: translateY(-1px);
+        }
+
+        /* Section spacing consistency */
+        .section-spacing {
+            padding-top: 3.5rem;
+            padding-bottom: 3.5rem;
+        }
     </style>
     <link rel="stylesheet" href="theme-cream.css">
 </head>
@@ -232,7 +265,7 @@
     </nav>
 
     <!-- 1. HERO & ABOUT SECTION -->
-    <section id="about" class="pt-16 pb-16 bg-slate-50 overflow-hidden">
+    <section id="about" class="section-spacing bg-slate-50 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="grid lg:grid-cols-2 gap-10 items-center">
                 
@@ -296,17 +329,30 @@
     </section>
 
     <!-- 2. PROJECTS SECTION -->
-    <section id="projects" class="py-16 bg-slate-50">
+    <section id="projects" class="section-spacing bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-bold text-slate-900 mb-4">Key Projects</h2>
                 <p class="text-slate-600 max-w-2xl mx-auto">Selected professional engagements where I owned the process from negotiation to implementation.</p>
             </div>
 
-            <div id="project-track" class="flex gap-6 overflow-x-auto md:overflow-x-hidden py-12 w-full cursor-ew-resize scroll-auto hide-scrollbar">
+            <div class="relative">
+                <div class="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent hidden md:block"></div>
+                <div class="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-slate-50 via-slate-50/80 to-transparent hidden md:block"></div>
+                <div class="absolute inset-y-0 left-0 flex items-center pl-2 hidden md:flex">
+                    <button type="button" aria-label="Scroll projects left" data-scroll-target="project-track" data-direction="-1" class="scroll-btn bg-white text-slate-700 rounded-full shadow-md border border-slate-200 w-10 h-10 flex items-center justify-center hover:bg-blue-50 hover:text-blue-600 transition">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 hidden md:flex">
+                    <button type="button" aria-label="Scroll projects right" data-scroll-target="project-track" data-direction="1" class="scroll-btn bg-white text-slate-700 rounded-full shadow-md border border-slate-200 w-10 h-10 flex items-center justify-center hover:bg-blue-50 hover:text-blue-600 transition">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div id="project-track" class="flex gap-6 overflow-x-auto py-12 w-full cursor-ew-resize scroll-auto hide-scrollbar">
                 <!-- Project 1: Greenfield Security -->
-                <a href="project-greenfield.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
-                    <img src="SSI.jpg" alt="Security systems network illustration" loading="eager" class="project-tile__image">
+                <a href="project-greenfield.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[400px] md:h-[450px]">
+                    <img src="SSI.jpg" alt="Security systems network illustration" loading="lazy" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">Implementation &amp; Sourcing</p>
@@ -316,8 +362,8 @@
                 </a>
 
                 <!-- Project 2: MPS -->
-                <a href="project-mps.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
-                    <img src="MPS.jpg" alt="Managed print services dashboard illustration" loading="eager" class="project-tile__image">
+                <a href="project-mps.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[400px] md:h-[450px]">
+                    <img src="MPS.jpg" alt="Managed print services dashboard illustration" loading="lazy" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">Managed Print Services</p>
@@ -327,8 +373,8 @@
                 </a>
 
                 <!-- Project 3: PR Automation & Enablement -->
-                <a href="project-automation.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
-                    <img src="automation .jpg" alt="Procurement automation illustration" loading="eager" class="project-tile__image">
+                <a href="project-automation.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[400px] md:h-[450px]">
+                    <img src="automation .jpg" alt="Procurement automation illustration" loading="lazy" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">Transformation Enablement</p>
@@ -338,8 +384,8 @@
                 </a>
 
                 <!-- Project 4: Agentic AI for Legal Review -->
-                <a href="project-agentic.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
-                    <img src="AI.jpg" alt="AI legal review illustration" loading="eager" class="project-tile__image">
+                <a href="project-agentic.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[400px] md:h-[450px]">
+                    <img src="AI.jpg" alt="AI legal review illustration" loading="lazy" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">AI &amp; Digital Governance</p>
@@ -349,8 +395,8 @@
                 </a>
 
                 <!-- Project 5: SBR Framework Implementation -->
-                <a href="project-sbr.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
-                    <img src="SBR.jpg" alt="Supplier scorecard review illustration" loading="eager" class="project-tile__image">
+                <a href="project-sbr.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[400px] md:h-[450px]">
+                    <img src="SBR.jpg" alt="Supplier scorecard review illustration" loading="lazy" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">Performance Governance</p>
@@ -360,8 +406,8 @@
                 </a>
 
                 <!-- Project 6: Punchout Vendors -->
-                <a href="project-punchout.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
-                    <img src="Punchout.jpg" alt="Punchout integration illustration" loading="eager" class="project-tile__image">
+                <a href="project-punchout.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[400px] md:h-[450px]">
+                    <img src="Punchout.jpg" alt="Punchout integration illustration" loading="lazy" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">e-Procurement</p>
@@ -369,6 +415,7 @@
                         <p class="text-sm text-white/85 leading-relaxed">Streamlined PR-to-PO process by integrating vendor catalogs directly into the ERP system.</p>
                     </div>
                 </a>
+                </div>
             </div>
             <div class="md:hidden text-sm text-slate-500 mt-2">See more projects →</div>
 
@@ -447,17 +494,30 @@
     </section>
 
     <!-- 4. COMMODITY EXPERTISE -->
-    <section id="expertise" class="py-16 bg-slate-50">
+    <section id="expertise" class="section-spacing bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-8">
                 <h2 class="text-3xl font-bold text-slate-900 mb-4">Commodity Expertise</h2>
                 <p class="text-slate-600 max-w-2xl mx-auto">Areas where I lead category strategy, supplier selection and governance — presented as focused case cards.</p>
             </div>
 
-            <div id="expertise-track" class="flex gap-6 overflow-x-auto md:overflow-x-hidden py-12 w-full cursor-ew-resize scroll-smooth hide-scrollbar">
+            <div class="relative">
+                <div class="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent hidden md:block"></div>
+                <div class="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-slate-50 via-slate-50/80 to-transparent hidden md:block"></div>
+                <div class="absolute inset-y-0 left-0 flex items-center pl-2 hidden md:flex">
+                    <button type="button" aria-label="Scroll expertise left" data-scroll-target="expertise-track" data-direction="-1" class="scroll-btn bg-white text-slate-700 rounded-full shadow-md border border-slate-200 w-10 h-10 flex items-center justify-center hover:bg-blue-50 hover:text-blue-600 transition">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 hidden md:flex">
+                    <button type="button" aria-label="Scroll expertise right" data-scroll-target="expertise-track" data-direction="1" class="scroll-btn bg-white text-slate-700 rounded-full shadow-md border border-slate-200 w-10 h-10 flex items-center justify-center hover:bg-blue-50 hover:text-blue-600 transition">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div id="expertise-track" class="flex gap-6 overflow-x-auto py-12 w-full cursor-ew-resize scroll-smooth hide-scrollbar">
                 <!-- Commodity 1: IT Hardware -->
-                <a href="commodity-it.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
-                    <img src="IT1.png" alt="IT hardware and security network illustration" class="project-tile__image">
+                <a href="commodity-it.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[440px] md:h-[500px]">
+                    <img src="IT1.png" alt="IT hardware and security network illustration" loading="lazy" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
@@ -470,8 +530,8 @@
                 </a>
 
                 <!-- Commodity 2: Facilities -->
-                <a href="commodity-fm.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
-                    <img src="Facility 1.png" alt="Facility management illustration" class="project-tile__image">
+                <a href="commodity-fm.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[440px] md:h-[500px]">
+                    <img src="Facility 1.png" alt="Facility management illustration" loading="lazy" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-6">
@@ -484,8 +544,8 @@
                 </a>
 
                 <!-- Commodity 3: Marketing & Events -->
-                <a href="commodity-marketing.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
-                    <img src="Marketing1.png" alt="Marketing and events illustration" class="project-tile__image">
+                <a href="commodity-marketing.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[440px] md:h-[500px]">
+                    <img src="Marketing1.png" alt="Marketing and events illustration" loading="lazy" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center text-pink-600 mb-6">
@@ -498,8 +558,8 @@
                 </a>
 
                 <!-- Commodity 4: Logistics & Fleet -->
-                <a href="commodity-logistics.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
-                    <img src="Logistics1.png" alt="Logistics network illustration" class="project-tile__image">
+                <a href="commodity-logistics.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[440px] md:h-[500px]">
+                    <img src="Logistics1.png" alt="Logistics network illustration" loading="lazy" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-600 mb-6">
@@ -512,8 +572,8 @@
                 </a>
 
                 <!-- Commodity 5: HR & Services -->
-                <a href="commodity-hr.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
-                    <img src="HR1.png" alt="HR services and workforce illustration" class="project-tile__image">
+                <a href="commodity-hr.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[440px] md:h-[500px]">
+                    <img src="HR1.png" alt="HR services and workforce illustration" loading="lazy" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <div class="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center text-violet-700 mb-6">
@@ -524,13 +584,14 @@
                         <p class="text-sm text-white/85 leading-relaxed">Contingent labor (MSP/VMS), recruitment agencies, and consultancy contracts. My POV: Standardizing rate cards and ensuring labor compliance are priority.</p>
                     </div>
                 </a>
+                </div>
             </div>
             <div class="md:hidden text-sm text-slate-500 mt-2">See more expertise →</div>
         </div>
     </section>
 
     <!-- Occupational Inspirations -->
-    <section class="py-16 bg-slate-50">
+    <section class="section-spacing bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-start">
                 <div class="space-y-8">
@@ -571,7 +632,7 @@
         </div>
     </section>
 
-    <section id="tech-stack" class="py-16 bg-slate-50 text-slate-800">
+    <section id="tech-stack" class="section-spacing bg-slate-50 text-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-10 text-center">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">Skill <span class="text-blue-600">Matrix</span></h2>
@@ -705,7 +766,7 @@
     </section>
 
     <!-- 9. CONTACT -->
-    <section id="contact" class="py-16 bg-slate-50 border-t border-slate-200">
+    <section id="contact" class="section-spacing bg-slate-50 border-t border-slate-200">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-4xl font-bold text-slate-900 mb-6">Let’s <span class="text-blue-600">Collaborate.</span></h2>
             <p class="text-lg text-slate-700 mb-10">
@@ -730,170 +791,56 @@
     </footer>
 
 <script>
-(function(){
-  const track = document.getElementById('project-track');
-  if (!track) return;
-  if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
-  track.addEventListener('mousemove', (event) => {
-    const x = event.clientX - track.getBoundingClientRect().left;
-    const percentage = Math.max(0, Math.min(1, x / track.clientWidth));
-    const maxScroll = track.scrollWidth - track.clientWidth;
-    track.scrollLeft = percentage * maxScroll;
-  });
-
-  track.addEventListener('mouseleave', () => {
-    const cards = Array.from(track.children);
-    if (!cards.length) return;
-    const center = track.scrollLeft + track.clientWidth / 2;
-    let nearest = cards[0];
-    let nearestDistance = Math.abs((nearest.offsetLeft + nearest.offsetWidth / 2) - center);
-
-    cards.forEach((card) => {
-      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-      const distance = Math.abs(cardCenter - center);
-      if (distance < nearestDistance) {
-        nearest = card;
-        nearestDistance = distance;
-      }
-    });
-
-    const targetLeft = nearest.offsetLeft - (track.clientWidth - nearest.offsetWidth) / 2;
-    track.scrollLeft = targetLeft;
-  });
-})();
-</script>
-
-<script>
-(function(){
-  const track = document.getElementById('expertise-track');
-  if (!track) return;
-  if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
-  let targetScroll = 0;
-  let isAnimating = false;
-
-  function smoothScroll() {
-    const current = track.scrollLeft;
-    const next = current + (targetScroll - current) * 0.12;
-    track.scrollLeft = Math.abs(next - targetScroll) < 0.5 ? targetScroll : next;
-    if (Math.abs(track.scrollLeft - targetScroll) < 0.5) {
-      isAnimating = false;
-      return;
-    }
-    requestAnimationFrame(smoothScroll);
-  }
-
-  track.addEventListener('mousemove', (event) => {
-    const x = event.clientX - track.getBoundingClientRect().left;
-    const percentage = Math.max(0, Math.min(1, x / track.clientWidth));
-    const maxScroll = track.scrollWidth - track.clientWidth;
-    targetScroll = percentage * maxScroll;
-    if (!isAnimating) {
-      isAnimating = true;
-      requestAnimationFrame(smoothScroll);
-    }
-  });
-
-  track.addEventListener('mouseleave', () => {
-    const cards = Array.from(track.children);
-    if (!cards.length) return;
-    const center = track.scrollLeft + track.clientWidth / 2;
-    let nearest = cards[0];
-    let nearestDistance = Math.abs((nearest.offsetLeft + nearest.offsetWidth / 2) - center);
-
-    cards.forEach((card) => {
-      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-      const distance = Math.abs(cardCenter - center);
-      if (distance < nearestDistance) {
-        nearest = card;
-        nearestDistance = distance;
-      }
-    });
-
-    const targetLeft = nearest.offsetLeft - (track.clientWidth - nearest.offsetWidth) / 2;
-    targetScroll = targetLeft;
-    if (!isAnimating) {
-      isAnimating = true;
-      requestAnimationFrame(smoothScroll);
-    }
-  });
-})();
-</script>
-
-<script>
-(function(){
-  const tabs = Array.from(document.querySelectorAll('.tech-tab'));
-  const panels = Array.from(document.querySelectorAll('.tech-panel'));
-  if (!tabs.length || !panels.length) return;
-
-  function activate(panelId) {
-    panels.forEach((panel) => {
-      if (panel.id === panelId) {
-        panel.classList.remove('hidden');
-        requestAnimationFrame(() => {
-          panel.classList.remove('opacity-0');
-          panel.classList.add('opacity-100');
-        });
-      } else {
-        panel.classList.add('opacity-0');
-        panel.classList.add('hidden');
-      }
-    });
-
-    tabs.forEach((tab) => {
-      const active = tab.dataset.panel === panelId;
-      tab.classList.toggle('bg-blue-600', active);
-      tab.classList.toggle('text-white', active);
-      tab.classList.toggle('bg-white', !active);
-      tab.classList.toggle('text-slate-600', !active);
-      tab.classList.toggle('border', !active);
-      tab.classList.toggle('border-slate-200', !active);
-    });
-  }
-
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => activate(tab.dataset.panel));
-  });
-
-  panels.forEach((panel, index) => {
-    if (index === 0) {
-      panel.classList.add('opacity-100');
-    } else {
-      panel.classList.add('hidden', 'opacity-0');
-    }
-    panel.classList.add('transition-opacity', 'duration-300');
-  });
-})();
-</script>
-
-<script>
 function switchTab(tabId) {
   document.querySelectorAll('.tab-btn').forEach((btn) => {
+    const isActive = btn.id === `btn-${tabId}`;
     btn.classList.remove('active', 'bg-blue-600', 'text-white', 'border-blue-600');
     btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+    btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    btn.setAttribute('tabindex', isActive ? '0' : '-1');
+    if (isActive) {
+      btn.classList.add('active', 'bg-blue-600', 'text-white', 'border-blue-600');
+    }
   });
-
-  const activeBtn = document.getElementById(`btn-${tabId}`);
-  if (activeBtn) {
-    activeBtn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
-    activeBtn.classList.add('active', 'bg-blue-600', 'text-white', 'border-blue-600');
-  }
 
   document.querySelectorAll('.tab-panel').forEach((panel) => {
     panel.classList.remove('active', 'flex');
     panel.classList.add('hidden');
+    panel.setAttribute('aria-hidden', 'true');
   });
 
   const targetPanel = document.getElementById(`panel-${tabId}`);
   if (targetPanel) {
     targetPanel.classList.remove('hidden');
-    targetPanel.classList.add('flex');
+    targetPanel.classList.add('flex', 'active');
+    targetPanel.setAttribute('aria-hidden', 'false');
   }
 }
 
 switchTab('strategic');
-</script>
 
-<script>
+document.querySelectorAll('.tab-btn').forEach((btn) => {
+  btn.setAttribute('role', 'tab');
+  btn.setAttribute('aria-controls', `panel-${btn.id.replace('btn-', '')}`);
+});
+document.querySelectorAll('.tab-panel').forEach((panel) => panel.setAttribute('role', 'tabpanel'));
+
+document.querySelectorAll('.skill-icon').forEach((el) => {
+    el.setAttribute('tabindex', '0');
+});
+
+const scrollButtons = document.querySelectorAll('.scroll-btn');
+scrollButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const targetId = btn.dataset.scrollTarget;
+    const dir = Number(btn.dataset.direction || 0);
+    const track = document.getElementById(targetId);
+    if (!track) return;
+    const delta = dir * (track.clientWidth * 0.75);
+    track.scrollBy({ left: delta, behavior: 'smooth' });
+  });
+});
+
 document.querySelectorAll('.project-tile').forEach(card => {
     card.addEventListener('mousemove', (e) => {
         if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
