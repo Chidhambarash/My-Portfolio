@@ -858,14 +858,24 @@ scrollButtons.forEach((btn) => {
   });
 });
 
-const projectTrack = document.getElementById('project-track');
-if (projectTrack) {
-  projectTrack.addEventListener('wheel', (e) => {
-    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+(function() {
+  const track = document.getElementById('project-track');
+  if (!track) return;
+  const scrollable = () => track.scrollWidth > track.clientWidth;
+
+  const handleWheel = (e) => {
+    if (!track.contains(e.target)) return;
+    if (!scrollable()) return;
+    const deltaY = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY; // normalize line vs pixel
+    if (Math.abs(deltaY) <= Math.abs(e.deltaX)) return;
     e.preventDefault();
-    projectTrack.scrollBy({ left: e.deltaY, behavior: 'smooth' });
-  }, { passive: false });
-}
+    track.scrollBy({ left: deltaY, behavior: 'smooth' });
+  };
+
+  track.addEventListener('wheel', handleWheel, { passive: false });
+  // capture-level fallback in case hosting forces passive listeners on the element
+  window.addEventListener('wheel', handleWheel, { passive: false, capture: true });
+})();
 
 document.querySelectorAll('.project-tile').forEach(card => {
     card.addEventListener('mousemove', (e) => {
