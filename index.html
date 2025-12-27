@@ -927,19 +927,26 @@ document.querySelectorAll('.project-tile').forEach(card => {
 
 <script>
 (function() {
-  const track = document.getElementById('project-track');
-  if (!track || !('IntersectionObserver' in window)) return;
+  if (!('IntersectionObserver' in window)) return;
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      entry.target.classList.toggle('in-view', entry.isIntersecting);
+  const setupReveal = (trackId) => {
+    const track = document.getElementById(trackId);
+    if (!track) return;
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('in-view', entry.isIntersecting);
+      });
+    }, { root: track, threshold: 0.25 });
+
+    track.querySelectorAll('.project-tile').forEach((card) => {
+      card.classList.add('reveal');
+      io.observe(card);
     });
-  }, { root: track, threshold: 0.25 });
+  };
 
-  track.querySelectorAll('.project-tile').forEach((card) => {
-    card.classList.add('reveal');
-    io.observe(card);
-  });
+  setupReveal('project-track');
+  setupReveal('expertise-track');
 })();
 </script>
 
