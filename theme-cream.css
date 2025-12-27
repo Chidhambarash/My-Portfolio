@@ -1,0 +1,58 @@
+:root {
+    --cream-1: #e7e2dc;
+    --cream-2: #f4ede3;
+    --amber-700: #8f5617;
+    --amber-600: #b97225;
+    --amber-500: #d89c4d;
+    --amber-400: #f1c46f;
+}
+
+body {
+    background-color: var(--cream-1) !important;
+    color: #1f2937 !important;
+}
+
+nav {
+    background-color: rgba(231, 226, 220, 0.92) !important;
+    border-color: #d7cfc4 !important;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, var(--amber-600), var(--amber-400));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-blue-700 { color: var(--amber-700) !important; }
+.text-blue-600 { color: var(--amber-600) !important; }
+.text-blue-500 { color: var(--amber-500) !important; }
+.text-blue-400 { color: var(--amber-400) !important; }
+
+.bg-blue-600 { background-color: var(--amber-600) !important; }
+.bg-blue-500 { background-color: var(--amber-500) !important; }
+.bg-blue-100 { background-color: #f8e8d4 !important; }
+.bg-blue-50 { background-color: #f3e1c9 !important; }
+
+.border-blue-200 { border-color: #e7c99d !important; }
+.border-blue-100 { border-color: #f1dcb7 !important; }
+
+.hover\:bg-blue-700:hover { background-color: var(--amber-700) !important; }
+.hover\:text-blue-600:hover { color: var(--amber-600) !important; }
+.hover\:border-blue-200:hover { border-color: #e7c99d !important; }
+
+.shadow-blue-600\/20 { --tw-shadow-color: rgba(185, 114, 37, 0.2) !important; }
+.shadow-blue-600\/30 { --tw-shadow-color: rgba(185, 114, 37, 0.3) !important; }
+.focus-visible\:ring-blue-500\/60:focus-visible { --tw-ring-color: rgb(216 156 77 / 0.6) !important; }
+
+.bg-white { background-color: #ffffff !important; }
+.bg-slate-50 { background-color: var(--cream-2) !important; }
+.bg-slate-900 { background-color: #0f172a !important; }
+
+.text-slate-900 { color: #0f172a !important; }
+.text-slate-800 { color: #1f2937 !important; }
+.text-slate-600 { color: #4b5563 !important; }
+.text-slate-500 { color: #6b7280 !important; }
+
+.border-slate-200 { border-color: #d7cfc4 !important; }
+.border-slate-100 { border-color: #e7e2dc !important; }
+.ring-slate-200\/60 { --tw-ring-color: rgb(215 207 196 / 0.6) !important; }

@@ -78,8 +78,8 @@
         .project-tile__overlay {
             position: absolute;
             inset: 0;
-            background-color: rgba(0, 0, 0, 0.6);
-            opacity: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.78) 100%);
+            opacity: 0.55;
             transition: opacity 0.3s ease;
             z-index: 2;
             pointer-events: none;
@@ -95,19 +95,21 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            opacity: 0;
-            transform: translateY(20px) translateZ(30px);
+            opacity: 1;
+            transform: translateY(0) translateZ(30px);
             transition: all 0.3s ease;
             pointer-events: none;
+            color: #f8fafc;
+            text-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
         }
 
         .project-tile:hover .project-tile__overlay {
-            opacity: 1;
+            opacity: 0.8;
         }
 
         .project-tile:hover .project-tile__content {
             opacity: 1;
-            transform: translateY(0) translateZ(30px);
+            transform: translateY(-6px) translateZ(30px);
         }
 
         .project-tile:hover .project-tile__image {
@@ -115,12 +117,12 @@
         }
 
         .project-tile.is-active .project-tile__overlay {
-            opacity: 1;
+            opacity: 0.8;
         }
 
         .project-tile.is-active .project-tile__content {
             opacity: 1;
-            transform: translateY(0) translateZ(30px);
+            transform: translateY(-6px) translateZ(30px);
         }
 
         .project-tile.is-active .project-tile__image {
@@ -142,10 +144,10 @@
             }
         }
 
-        /* Theme: Executive Noir */
+        /* Theme: Warm Cream */
         body {
-            background-color: #0b0f1a;
-            color: #e5e7eb;
+            background-color: #e7e2dc; /* matches rameshda.webflow.io cream tone */
+            color: #1f2937;
         }
 
         h1,
@@ -157,43 +159,45 @@
         }
 
         nav {
-            background-color: rgba(11, 15, 26, 0.85);
-            border-color: #1f2937;
+            background-color: rgba(231, 226, 220, 0.92);
+            border-color: #d7cfc4;
         }
 
         .gradient-text {
-            background: linear-gradient(to right, #d4af37, #f8fafc);
+            background: linear-gradient(to right, #b97225, #f1c46f);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .text-blue-600 { color: #d4af37; }
-        .text-blue-500 { color: #e6c26a; }
-        .text-blue-400 { color: #f2d68a; }
-        .bg-blue-600 { background-color: #d4af37; }
-        .bg-blue-500 { background-color: #e6c26a; }
-        .bg-blue-100 { background-color: #2a2313; }
-        .bg-blue-50 { background-color: #1b1720; }
-        .border-blue-200 { border-color: #5a4a1a; }
-        .border-blue-100 { border-color: #3b3215; }
-        .hover\:bg-blue-700:hover { background-color: #b8860b; }
-        .hover\:text-blue-600:hover { color: #d4af37; }
-        .hover\:border-blue-200:hover { border-color: #5a4a1a; }
-        .shadow-blue-600\/20 { --tw-shadow-color: rgba(212, 175, 55, 0.2); }
-        .shadow-blue-600\/30 { --tw-shadow-color: rgba(212, 175, 55, 0.3); }
-        .focus-visible\:ring-blue-500\/60:focus-visible { --tw-ring-color: rgb(230 194 106 / 0.6); }
+        .text-blue-700 { color: #8f5617; }
+        .text-blue-600 { color: #b97225; }
+        .text-blue-500 { color: #d89c4d; }
+        .text-blue-400 { color: #f1c46f; }
+        .bg-blue-600 { background-color: #b97225; }
+        .bg-blue-500 { background-color: #d89c4d; }
+        .bg-blue-100 { background-color: #f8e8d4; }
+        .bg-blue-50 { background-color: #f3e1c9; }
+        .border-blue-200 { border-color: #e7c99d; }
+        .border-blue-100 { border-color: #f1dcb7; }
+        .hover\:bg-blue-700:hover { background-color: #8f5617; }
+        .hover\:text-blue-600:hover { color: #b97225; }
+        .hover\:border-blue-200:hover { border-color: #e7c99d; }
+        .shadow-blue-600\/20 { --tw-shadow-color: rgba(185, 114, 37, 0.2); }
+        .shadow-blue-600\/30 { --tw-shadow-color: rgba(185, 114, 37, 0.3); }
+        .focus-visible\:ring-blue-500\/60:focus-visible { --tw-ring-color: rgb(216 156 77 / 0.6); }
 
-        .bg-white { background-color: #111827; }
-        .bg-slate-50 { background-color: #0b0f1a; }
+        .bg-white { background-color: #ffffff; }
+        .bg-slate-50 { background-color: #f4ede3; }
         .bg-slate-900 { background-color: #0f172a; }
-        .text-slate-900 { color: #f8fafc; }
-        .text-slate-800 { color: #e5e7eb; }
-        .text-slate-600 { color: #a1a1aa; }
-        .text-slate-500 { color: #9ca3af; }
-        .border-slate-200 { border-color: #1f2937; }
-        .border-slate-100 { border-color: #111827; }
-        .ring-slate-200\/60 { --tw-ring-color: rgb(55 65 81 / 0.6); }
+        .text-slate-900 { color: #0f172a; }
+        .text-slate-800 { color: #1f2937; }
+        .text-slate-600 { color: #4b5563; }
+        .text-slate-500 { color: #6b7280; }
+        .border-slate-200 { border-color: #d7cfc4; }
+        .border-slate-100 { border-color: #e7e2dc; }
+        .ring-slate-200\/60 { --tw-ring-color: rgb(215 207 196 / 0.6); }
     </style>
+    <link rel="stylesheet" href="theme-cream.css">
 </head>
 <body class="bg-slate-50 text-slate-800">
 
@@ -212,14 +216,14 @@
                     <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
                 </div>
                 <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-600/20">
-                    Hire Me
+                    Get in Touch
                 </a>
             </div>
         </div>
     </nav>
 
     <!-- 1. HERO & ABOUT SECTION -->
-    <section id="about" class="pt-16 pb-16 bg-white overflow-hidden">
+    <section id="about" class="pt-16 pb-16 bg-slate-50 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="grid lg:grid-cols-2 gap-10 items-center">
                 
@@ -262,7 +266,7 @@
                     <!-- Image Card with Offset Shadow -->
                     <div class="relative w-full max-w-[400px] h-[500px]">
                         <!-- The Image Itself -->
-                        <div class="absolute inset-0 bg-slate-200 rounded-3xl overflow-hidden z-10 border border-slate-100">
+                        <div class="absolute inset-0 bg-slate-100 rounded-3xl overflow-hidden z-10 border border-slate-100">
                             <!-- Placeholder Image -->
                             <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profile" class="w-full h-full object-cover blur-[12px] opacity-90">
                             
@@ -293,7 +297,7 @@
             <div id="project-track" class="flex gap-6 overflow-x-auto md:overflow-x-hidden py-12 w-full cursor-ew-resize scroll-auto hide-scrollbar">
                 <!-- Project 1: Greenfield Security -->
                 <a href="project-greenfield.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
-                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80" alt="Construction site with cranes" loading="eager" class="project-tile__image">
+                    <img src="SSI.jpg" alt="Security systems network illustration" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">Implementation &amp; Sourcing</p>
@@ -304,7 +308,7 @@
 
                 <!-- Project 2: MPS -->
                 <a href="project-mps.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
-                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" alt="Forest canopy with sunlight" loading="eager" class="project-tile__image">
+                    <img src="MPS.jpg" alt="Managed print services dashboard illustration" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">Managed Print Services</p>
@@ -313,20 +317,9 @@
                     </div>
                 </a>
 
-                <!-- Project 3: Punchout Vendors -->
-                <a href="project-punchout.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
-                    <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=800&q=80" alt="Point of sale payment terminal" loading="eager" class="project-tile__image">
-                    <div class="project-tile__overlay"></div>
-                    <div class="project-tile__content">
-                        <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">e-Procurement</p>
-                        <h3 class="text-2xl font-bold mb-3">Punchout Integration</h3>
-                        <p class="text-sm text-white/85 leading-relaxed">Streamlined PR-to-PO process by integrating vendor catalogs directly into the ERP system.</p>
-                    </div>
-                </a>
-
-                <!-- Project 4: PR Automation & Enablement -->
+                <!-- Project 3: PR Automation & Enablement -->
                 <a href="project-automation.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
-                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80" alt="Robotic arm in motion" loading="eager" class="project-tile__image">
+                    <img src="automation .jpg" alt="Procurement automation illustration" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">Transformation Enablement</p>
@@ -335,9 +328,9 @@
                     </div>
                 </a>
 
-                <!-- Project 5: Agentic AI for Legal Review -->
+                <!-- Project 4: Agentic AI for Legal Review -->
                 <a href="project-agentic.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
-                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="Abstract AI brain visualization" loading="eager" class="project-tile__image">
+                    <img src="AI.jpg" alt="AI legal review illustration" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">AI &amp; Digital Governance</p>
@@ -346,14 +339,25 @@
                     </div>
                 </a>
 
-                <!-- Project 6: SBR Framework Implementation -->
+                <!-- Project 5: SBR Framework Implementation -->
                 <a href="project-sbr.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="Business handshake" loading="eager" class="project-tile__image">
+                    <img src="SBR.jpg" alt="Supplier scorecard review illustration" loading="eager" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">Performance Governance</p>
                         <h3 class="text-2xl font-bold mb-3">SBR Framework Implementation</h3>
                         <p class="text-sm text-white/85 leading-relaxed">Institutionalized a supplier scorecard and review cadence, driving accountability and enabling ~30% vendor consolidation.</p>
+                    </div>
+                </a>
+
+                <!-- Project 6: Punchout Vendors -->
+                <a href="project-punchout.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[450px]">
+                    <img src="Punchout.jpg" alt="Punchout integration illustration" loading="eager" class="project-tile__image">
+                    <div class="project-tile__overlay"></div>
+                    <div class="project-tile__content">
+                        <p class="text-xs uppercase tracking-[0.3em] text-white/70 mb-2">e-Procurement</p>
+                        <h3 class="text-2xl font-bold mb-3">Punchout Integration</h3>
+                        <p class="text-sm text-white/85 leading-relaxed">Streamlined PR-to-PO process by integrating vendor catalogs directly into the ERP system.</p>
                     </div>
                 </a>
             </div>
@@ -444,7 +448,7 @@
             <div id="expertise-track" class="flex gap-6 overflow-x-auto md:overflow-x-hidden py-12 w-full cursor-ew-resize scroll-smooth hide-scrollbar">
                 <!-- Commodity 1: IT Hardware -->
                 <a href="commodity-it.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Microchip close-up" class="project-tile__image">
+                    <img src="IT1.png" alt="IT hardware and security network illustration" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
@@ -458,7 +462,7 @@
 
                 <!-- Commodity 2: Facilities -->
                 <a href="commodity-fm.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Office building interior" class="project-tile__image">
+                    <img src="Facility 1.png" alt="Facility management illustration" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-6">
@@ -472,7 +476,7 @@
 
                 <!-- Commodity 3: Marketing & Events -->
                 <a href="commodity-marketing.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
-                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80" alt="Creative team meeting" class="project-tile__image">
+                    <img src="Marketing1.png" alt="Marketing and events illustration" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center text-pink-600 mb-6">
@@ -486,7 +490,7 @@
 
                 <!-- Commodity 4: Logistics & Fleet -->
                 <a href="commodity-logistics.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Shipping containers at port" class="project-tile__image">
+                    <img src="Logistics1.png" alt="Logistics network illustration" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-600 mb-6">
@@ -500,7 +504,7 @@
 
                 <!-- Commodity 5: HR & Services -->
                 <a href="commodity-hr.html" class="project-tile group shadow-lg ring-1 ring-slate-200/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 flex-shrink-0 w-[85vw] md:w-[400px] h-[500px]">
-                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" alt="Team collaboration" class="project-tile__image">
+                    <img src="HR1.png" alt="HR services and workforce illustration" class="project-tile__image">
                     <div class="project-tile__overlay"></div>
                     <div class="project-tile__content">
                         <div class="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center text-violet-700 mb-6">
@@ -516,48 +520,44 @@
         </div>
     </section>
 
-    <!-- 5. INSPIRATIONS & 6. IMPACT (Combined for visual flow) -->
-    <section class="py-16 bg-white overflow-hidden">
+    <!-- Occupational Inspirations -->
+    <section class="py-16 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-8">
-                
-                <!-- Occupational Inspirations -->
-                <div>
-                    <h2 class="text-3xl font-bold text-slate-900 mb-8">Occupational Inspirations</h2>
-                    <div class="space-y-6">
-                        <blockquote class="border-l-4 border-blue-500 pl-6 py-2 italic text-slate-600 text-lg">
-                            "Procurement is not about buying cheaper, it's about buying smarter and enabling innovation."
-                        </blockquote>
-                        <div class="bg-slate-50 p-6 rounded-xl">
-                            <h4 class="font-bold text-slate-900 mb-2">My Philosophy</h4>
-                            <p class="text-slate-600 text-sm">I believe in <span class="text-blue-600 font-semibold">Vendor Partnership</span> over adversarial negotiation. Sustainable value comes from collaboration, not squeeze tactics.</p>
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <div class="space-y-8">
+                    <div>
+                        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 mb-2">Occupational Inspirations</p>
+                        <h3 class="text-3xl font-bold text-slate-900 mb-4">"Procurement is not about buying cheaper, it’s about buying smarter and enabling innovation."</h3>
+                        <div class="flex items-start gap-3 bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
+                            <div class="w-1.5 h-full bg-blue-500 rounded-full mt-1"></div>
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-900 mb-2">My Philosophy</h4>
+                                <p class="text-slate-600 leading-relaxed">I believe in <span class="text-blue-600 font-semibold">Vendor Partnership</span> over adversarial negotiation. Sustainable value comes from collaboration, not squeeze tactics.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Impact / Numbers -->
-                <div>
-                    <h2 class="text-3xl font-bold text-slate-900 mb-8">Impact Created</h2>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="bg-blue-50 p-6 rounded-2xl text-center">
-                            <div class="text-4xl font-extrabold text-blue-600 mb-2">15%</div>
-                            <div class="text-sm font-medium text-slate-600">Avg. Cost Savings</div>
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-slate-900">Impact Created</h3>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="rounded-3xl bg-[#ead6bc] text-center p-6 shadow-sm border border-slate-100">
+                            <div class="text-4xl font-extrabold text-[#9a611f]">15%</div>
+                            <p class="text-sm text-slate-700 mt-2">Avg. Cost Savings</p>
                         </div>
-                        <div class="bg-indigo-50 p-6 rounded-2xl text-center">
-                            <div class="text-4xl font-extrabold text-indigo-600 mb-2">40+</div>
-                            <div class="text-sm font-medium text-slate-600">Vendors Managed</div>
+                        <div class="rounded-3xl bg-[#e9edff] text-center p-6 shadow-sm border border-slate-100">
+                            <div class="text-4xl font-extrabold text-[#5446ff]">40+</div>
+                            <p class="text-sm text-slate-700 mt-2">Vendors Managed</p>
                         </div>
-                        <div class="bg-emerald-50 p-6 rounded-2xl text-center">
-                            <div class="text-4xl font-extrabold text-emerald-600 mb-2">100%</div>
-                            <div class="text-sm font-medium text-slate-600">Compliance Rate</div>
+                        <div class="rounded-3xl bg-[#e8f7ee] text-center p-6 shadow-sm border border-slate-100">
+                            <div class="text-4xl font-extrabold text-[#0f9d58]">100%</div>
+                            <p class="text-sm text-slate-700 mt-2">Compliance Rate</p>
                         </div>
-                        <div class="bg-purple-50 p-6 rounded-2xl text-center">
-                            <div class="text-4xl font-extrabold text-purple-600 mb-2">3</div>
-                            <div class="text-sm font-medium text-slate-600">Process Automations</div>
+                        <div class="rounded-3xl bg-[#f4eefe] text-center p-6 shadow-sm border border-slate-100">
+                            <div class="text-4xl font-extrabold text-[#9c2be1]">3</div>
+                            <p class="text-sm text-slate-700 mt-2">Process Automations</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -590,16 +590,16 @@
                             <div><h3 class="text-2xl font-bold text-slate-900">Core Competencies</h3><p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Business Value Drivers</p></div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition"><i class="fa-solid fa-file-signature text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Contract Negotiation</h4><p class="text-xs text-slate-500 mt-1">Redlining, liability clauses & multi-year deals.</p></div></div>
-                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition"><i class="fa-solid fa-earth-americas text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Global Sourcing</h4><p class="text-xs text-slate-500 mt-1">LCCS strategies & nearshoring analysis.</p></div></div>
-                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition"><i class="fa-solid fa-layer-group text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Category Management</h4><p class="text-xs text-slate-500 mt-1">Spend analysis & market intelligence.</p></div></div>
-                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-600 group-hover:text-white transition"><i class="fa-solid fa-handshake text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Supplier Mgmt (SRM)</h4><p class="text-xs text-slate-500 mt-1">QBRs & Performance Improvement.</p></div></div>
-                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-600 group-hover:text-white transition"><i class="fa-solid fa-truck-fast text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Logistics</h4><p class="text-xs text-slate-500 mt-1">Freight forwarding & Incoterms.</p></div></div>
-                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-600 group-hover:text-white transition"><i class="fa-solid fa-industry text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">CAPEX & Greenfield</h4><p class="text-xs text-slate-500 mt-1">Factory setup, OEM machinery & MRO.</p></div></div>
-                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-600 group-hover:text-white transition"><i class="fa-solid fa-calculator text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">TCO Analysis</h4><p class="text-xs text-slate-500 mt-1">Total Cost of Ownership modelling.</p></div></div>
-                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-600 group-hover:text-white transition"><i class="fa-solid fa-scale-balanced text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Make-or-Buy</h4><p class="text-xs text-slate-500 mt-1">Strategic outsourcing decisions.</p></div></div>
-                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition"><i class="fa-solid fa-leaf text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Sustainability (ESG)</h4><p class="text-xs text-slate-500 mt-1">Scope 3, Circular Economy & Carbon.</p></div></div>
-                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center flex-shrink-0 group-hover:bg-rose-600 group-hover:text-white transition"><i class="fa-solid fa-shield-halved text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Risk & Resilience</h4><p class="text-xs text-slate-500 mt-1">Geopolitics & Supply Chain Mapping.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200"><i class="fa-solid fa-file-signature text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Contract Negotiation</h4><p class="text-xs text-slate-500 mt-1">Redlining, liability clauses & multi-year deals.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200"><i class="fa-solid fa-earth-americas text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Global Sourcing</h4><p class="text-xs text-slate-500 mt-1">LCCS strategies & nearshoring analysis.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200"><i class="fa-solid fa-layer-group text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Category Management</h4><p class="text-xs text-slate-500 mt-1">Spend analysis & market intelligence.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200"><i class="fa-solid fa-handshake text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Supplier Mgmt (SRM)</h4><p class="text-xs text-slate-500 mt-1">QBRs & Performance Improvement.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200"><i class="fa-solid fa-truck-fast text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Logistics</h4><p class="text-xs text-slate-500 mt-1">Freight forwarding & Incoterms.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200"><i class="fa-solid fa-industry text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">CAPEX & Greenfield</h4><p class="text-xs text-slate-500 mt-1">Factory setup, OEM machinery & MRO.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200"><i class="fa-solid fa-calculator text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">TCO Analysis</h4><p class="text-xs text-slate-500 mt-1">Total Cost of Ownership modelling.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200"><i class="fa-solid fa-scale-balanced text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Make-or-Buy</h4><p class="text-xs text-slate-500 mt-1">Strategic outsourcing decisions.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200"><i class="fa-solid fa-leaf text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Sustainability (ESG)</h4><p class="text-xs text-slate-500 mt-1">Scope 3, Circular Economy & Carbon.</p></div></div>
+                            <div class="flex items-start group"><div class="mt-1 mr-4 w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200"><i class="fa-solid fa-shield-halved text-sm"></i></div><div><h4 class="font-bold text-slate-800 text-sm">Risk & Resilience</h4><p class="text-xs text-slate-500 mt-1">Geopolitics & Supply Chain Mapping.</p></div></div>
                         </div>
                     </div>
                     <div class="w-full lg:w-4/12 relative bg-slate-900 overflow-hidden group self-stretch">
@@ -696,17 +696,17 @@
     </section>
 
     <!-- 9. CONTACT -->
-    <section id="contact" class="py-16 bg-white">
+    <section id="contact" class="py-16 bg-slate-50 border-t border-slate-200">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-4xl font-bold text-slate-900 mb-6">Let’s <span class="text-blue-600">Collaborate.</span></h2>
-            <p class="text-lg text-slate-600 mb-10">
-                Open to Procurement & Supply Chain challenges in the EU. Transforming spend data into business value—one project at a time.
+            <p class="text-lg text-slate-700 mb-10">
+                Open to Procurement &amp; Supply Chain challenges in the EU. Transforming spend data into business value—one project at a time.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="mailto:chidhambarashm@gmail.com" class="inline-flex justify-center items-center px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">
+                <a href="mailto:chidhambarashm@gmail.com" class="inline-flex justify-center items-center px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 border border-blue-600/40">
                     <i class="fa-solid fa-envelope mr-2"></i> Send Email
                 </a>
-                <a href="https://www.linkedin.com/in/chidhambarash-mani-a6529618b" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-8 py-4 bg-slate-100 text-slate-900 font-bold rounded-xl hover:bg-slate-200 transition">
+                <a href="https://www.linkedin.com/in/chidhambarash-mani-a6529618b" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-8 py-4 bg-white text-slate-900 font-bold rounded-xl border border-slate-200 hover:bg-blue-50 transition shadow-sm">
                     <i class="fa-brands fa-linkedin mr-2"></i> LinkedIn
                 </a>
             </div>
@@ -715,7 +715,7 @@
 
     <!-- FOOTER -->
     <footer class="bg-slate-50 py-8 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto px-4 text-center text-slate-600 text-sm">
             <p>&copy; 2025 Chidhambarash Mani.</p>
         </div>
     </footer>
